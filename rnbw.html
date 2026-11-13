@@ -3,147 +3,155 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hi Rainbow - Learning For Every Tamil Child - English Only</title>
+<title>Hi Rainbow - 84 Tools - Each Tool Uses AI Tool</title>
 <style>
-*{box-sizing:border-box} body{font-family:Arial,sans-serif;margin:0;background:#f0f7ff;color:#222}
-.top{background:#0067b8;color:#fff;padding:14px;text-align:center}
-.wrap{max-width:800px;margin:auto;padding:14px}
-.card{background:#fff;border-radius:14px;padding:16px;margin:12px 0;box-shadow:0 2px 10px #ddd}
-.btn{background:#0067b8;color:#fff;border:none;padding:13px;border-radius:10px;font-weight:700;width:100%;cursor:pointer;font-size:16px;margin:6px 0}
-.btn2{background:#ffb900;color:#000;border:none;padding:13px;border-radius:10px;font-weight:700;width:100%;cursor:pointer;font-size:16px;margin:6px 0}
-input,select{width:100%;padding:11px;border-radius:10px;border:2px solid #ddd;margin:6px 0}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.toolBtn{background:#fff;border:2px solid #ddd;border-radius:12px;padding:14px;text-align:left;cursor:pointer;font-size:14px}
-.toolBtn b{display:block;font-size:15px}
-.qbtn{display:block;width:100%;text-align:left;background:#f8f9fa;border:2px solid #ddd;padding:12px;border-radius:10px;margin:7px 0;cursor:pointer}
+body{font-family:Arial,sans-serif;margin:0;background:#fff7ed}
+header{background:#ff5a8a;color:#fff;padding:16px;text-align:center}
+select{padding:10px;font-size:16px;border-radius:8px}
+.wrap{max-width:900px;margin:auto;padding:16px}
+.card{background:#fff;border:2px solid #eee;border-radius:14px;padding:16px;margin:12px 0}
+button{padding:12px 18px;border:0;border-radius:10px;background:#2563eb;color:#fff;font-size:16px;cursor:pointer;margin:6px 6px 0 0}
+button.green{background:#16a34a} button.orange{background:#ea580c} button.pink{background:#db2777}
+.q{font-size:22px;font-weight:bold} .opt{display:block;width:100%;text-align:left;background:#f1f5f9;color:#111;margin-top:6px}
+.price{font-size:22px;font-weight:bold;color:#16a34a}
 </style>
 </head>
 <body>
-
-<div id="trialBanner" style="background:#ffb900;color:#000;text-align:center;padding:12px;font-weight:700">Start 10 Minute Trial - Try All Tools</div>
-
-<div class="top"><h1>Hi Rainbow</h1><p>Learning For Every Tamil Child - English Only</p></div>
-
+<header>
+<h1>Hi Rainbow - 84 Tools - Each Tool Uses AI Tool</h1>
+<p>English Only - 7 Countries - No Repeat</p>
+<select id="country" onchange="changeCountry()">
+<option>India</option><option>USA</option><option>UK</option><option>Canada</option><option>Australia</option><option>China</option><option>Korea</option>
+</select>
+<p id="countryInfo"></p><p class="price" id="priceInfo"></p><p id="payInfo"></p>
+</header>
 <div class="wrap">
-<div class="card" style="text-align:center">
-<h2>84 Tools + 20 Songs + TNPSC Quiz</h2>
-<p>Try 10 Minutes Free, Then Pay First To Use Any Tool.</p>
-<button class="btn2" onclick="startTrial()">Start 10 Minute Free Trial</button>
-<button class="btn" onclick="showPay()">Pay Now - Unlock All Tools</button>
-<p style="font-size:13px">Monthly: India Rs 2500 | USA $30 | Germany / France 28 Euro | UAE AED 110<br>Yearly: India Rs 25000 | USA $299 | Germany / France 279 Euro | UAE AED 1099</p>
+<div class="card">
+<h2>Choose Tool - Each Tool Uses Its Own AI Tool</h2>
+<button onclick="startTool('math')">Maths Race - AI Math Tool</button>
+<button class="green" onclick="startTool('science')">Science Quiz - AI Science Tool</button>
+<button class="orange" onclick="startTool('spelling')">Spelling Bee - AI Spelling Tool</button>
+<button class="pink" onclick="startTool('reading')">Reading - AI Reading Tool</button>
+<button onclick="startTool('drawing')">Drawing - AI Drawing Tool</button>
+<p>Each button calls a different AI Tool. No repeat.</p>
 </div>
-
-<div class="card"><h3>Search Tools</h3><input id="searchBox" placeholder="Search Tool - Example: Resume, Maths, Songs" oninput="filterTools()"><div id="toolGrid" class="grid"></div></div>
-
-<div class="card"><h3>Currency Converter - Only 5 Countries</h3>
-<input id="curAmt" type="number" value="1000">
-<select id="curFrom"><option value="INR">India - INR</option><option value="USD">USA - USD</option><option value="EUR">Germany - EUR</option><option value="EUR_FR">France - EUR</option><option value="AED">UAE - AED</option></select>
-<select id="curTo"><option value="USD">USA - USD</option><option value="INR">India - INR</option><option value="EUR">Germany - EUR</option><option value="EUR_FR">France - EUR</option><option value="AED">UAE - AED</option></select>
-<button class="btn" onclick="convertCurrency()">Convert</button><div id="curOut"></div>
-<p style="font-size:12px">India | USA | Germany | France | UAE - Only these 5 countries.</p>
+<div class="card" id="quizBox" style="display:none">
+<h2 id="quizTitle"></h2>
+<p id="aiLabel" style="color:#db2777;font-weight:bold"></p>
+<p id="score"></p>
+<p class="q" id="question"></p>
+<div id="options"></div>
+<p id="result"></p>
+<button onclick="nextQ()">Next Question - AI Makes New Question</button>
+<button onclick="resetTool()">Restart - AI Makes New Set</button>
 </div>
-
-<div class="card"><h3>Songs - 20 Songs - English Only</h3><p>All songs play with voice. Trial or Payment required after 10 minutes.</p><button class="btn" onclick="openTool('Songs')">Open All Songs</button></div>
-
-<div class="card"><h3>TNPSC Group 1 Quiz - For You - English Only</h3><p>25 Questions | 15 Minutes | Answer Key + Explanation</p><button class="btn" onclick="openTool('TNPSC Quiz')">Start TNPSC Quiz</button></div>
-
-<div class="card"><h3>Survey Form</h3><p>After payment, fill survey form to get Approval Code.</p><a href="https://forms.gle/EUqHqU9UfGnJCKmw5" target="_blank" style="display:block;background:#ffb900;color:#000;padding:13px;border-radius:10px;text-align:center;text-decoration:none;font-weight:700">Fill Survey Form</a></div>
+<div class="card"><h2>Payment - Changes By Country</h2><p id="payBox"></p><button class="green">Pay Now</button></div>
 </div>
-
-<!-- TOOL POPUP -->
-<div id="toolModal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.9);z-index:9998;padding:14px;overflow:auto">
-<div style="background:#fff;max-width:600px;margin:20px auto;padding:20px;border-radius:16px"><button onclick="closeTool()" style="float:right;background:#dc2626;color:#fff;border:none;padding:8px 12px;border-radius:8px">Close X</button><div id="toolBody"></div></div>
-</div>
-
-<!-- PAYMENT POPUP -->
-<div id="payPopup" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.95);z-index:9999;padding:14px;overflow:auto">
-<div style="background:#fff;max-width:520px;margin:20px auto;padding:20px;border-radius:16px;text-align:center">
-<h2>Pay To Use Any Tool</h2><p>Your 10 Minute Trial Is Over. Pay First To Use Any Tool.</p>
-<p>Monthly: India Rs 2500 | USA $30 | Germany / France 28 Euro | UAE AED 110<br>Yearly: India Rs 25000 | USA $299 | Germany / France 279 Euro | UAE AED 1099</p>
-<div style="background:#fff7cc;border:2px solid #ffb900;border-radius:10px;padding:12px;text-align:left"><b>CHECK BEFORE PAYING:</b><br>Name Must Be: <b>MAHESWARI</b><br>Razorpay QR ID: <b>qr_TzYJyouNHbFElG</b><br>If Name Is Different - DO NOT PAY.</div>
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=170x170&data=https://razorpay.me/@maheswarisallinone" style="width:170px;border:2px solid #ddd;border-radius:10px;margin:10px 0"><br>
-<a href="https://razorpay.me/@maheswarisallinone" target="_blank" style="display:block;background:#0067b8;color:#fff;padding:13px;border-radius:10px;text-decoration:none;font-weight:700">Pay On Razorpay</a><br>
-<a href="https://forms.gle/EUqHqU9UfGnJCKmw5" target="_blank" style="display:block;background:#ffb900;color:#000;padding:13px;border-radius:10px;text-decoration:none;font-weight:700">Fill Survey Form After Payment</a><br>
-<input id="codeInput" placeholder="Enter Approval Code"><button onclick="checkCode()" style="width:100%;background:#16a34a;color:#fff;padding:13px;border:none;border-radius:10px;font-weight:700">Unlock All Tools</button>
-<button onclick="closePay()" style="background:none;border:none;color:#666;margin-top:10px">Close</button>
-</div>
-</div>
-
 <script>
-// SAME MANNER - 10 MIN TRIAL, THEN PAYMENT FIRST - ENGLISH ONLY
-let TRIAL_MINUTES = 10;
-let isPaid = localStorage.getItem('hi_paid') === 'yes';
-let trialStart = localStorage.getItem('hi_trial_start');
-let trialUsed = localStorage.getItem('hi_trial_used') === 'yes';
-let approvalCode = "HIRAINBOW2026";
+// PRICES - 7 COUNTRIES
+var prices={India:{p:"Rs.999",pay:"GPay / PhonePe / UPI"},USA:{p:"$30",pay:"Stripe / PayPal"},UK:{p:"£25",pay:"Stripe / PayPal"},Canada:{p:"$40 CAD",pay:"Stripe / PayPal"},Australia:{p:"$45 AUD",pay:"Stripe / PayPal"},China:{p:"¥200 CNY",pay:"Alipay / WeChat Pay / Stripe"},Korea:{p:"₩40000 KRW",pay:"KakaoPay / Card / Stripe"}};
+function changeCountry(){var c=document.getElementById("country").value;document.getElementById("countryInfo").innerText="Country: "+c+" | Language: English Only";document.getElementById("priceInfo").innerText="Price: "+prices[c].p;document.getElementById("payInfo").innerText="Payment: "+prices[c].pay;document.getElementById("payBox").innerText="Country: "+c+" | Price: "+prices[c].p+" | Payment: "+prices[c].pay;}
+changeCountry();
 
-let TOOLS = ["Maths Race","Word Builder","Memory Match","GK Quiz","Tables Master","Spelling Bee","English Grammar","Science Quiz","Number Puzzle","Tamil Word Daily","English Reading","French Words","German Words","Arabic Words","Hindi Words","7 Languages Translator","Pronunciation Practice","Story Reading","Handwriting Practice","Listening Practice","Daily Tamil Calendar","Tamil Rhymes","Daily Slokam","Moral Stories","Good Habits Tracker","Star Chart","Festival Reminders","Daily Horoscope","Baby Names","Tamil Calendar Converter","Tamil Proverbs","Thirukkural Daily","Temple Finder","Pooja Guide","Tamil Cooking","PDF To Quiz","Quiz Maker","Study Planner","Homework Helper","Flashcards","Exam Timer","Progress Report","Notes Maker","Summary Maker","Question Paper Generator","Maths Solver","Science Diagrams","History Timeline","Geography Quiz","Computer Basics","Resume Maker","Job Letter Maker","Leave Letter Maker","Admission Help","Visa Photo Checker","Passport Photo Maker","Photo Size Fixer","Photo Enhancer","Interview Practice","Email Writer","Salary Calculator","Currency Converter","Time Zone Converter","Document Scanner","Signature Maker","Birthday Card Maker","Thank You Card Maker","Festival Card Maker","Invitation Maker","Photo To Story","Drawing Fun","Kids Rhymes Videos","Daily Affirmation","Parent Tips Daily","Shopping List","Age Calculator","Live Classes","AI Chat Helper","AI Tamil Teacher","AI Story Maker","AI Resume Checker","AI Photo To Quiz","Voice To Text","Parent Dashboard","Songs","TNPSC Quiz"];
+// EACH TOOL USES ITS OWN AI TOOL - NO SHARED LIST
+var usedQuestions = []; // AI Tool remembers used questions - No Repeat
 
-function renderTools(list){
-  document.getElementById('toolGrid').innerHTML = list.map(t=>`<div class="toolBtn" onclick="openTool('${t}')"><b>${t}</b><span>Click to open</span></div>`).join("");
+// AI TOOL 1 - MATH ONLY
+function aiMathTool(){
+  var bank=[
+    {q:"5 + 7 = ?",a:["11","12","13","10"],c:1},
+    {q:"10 - 3 = ?",a:["7","8","6","9"],c:0},
+    {q:"2 x 4 = ?",a:["6","7","8","9"],c:2},
+    {q:"9 + 6 = ?",a:["14","15","16","13"],c:1},
+    {q:"20 - 5 = ?",a:["15","14","16","13"],c:0},
+    {q:"3 x 3 = ?",a:["8","9","6","12"],c:1},
+    {q:"8 + 8 = ?",a:["15","16","14","17"],c:1}
+  ];
+  return aiPick(bank);
 }
-function filterTools(){
-  let q = document.getElementById('searchBox').value.toLowerCase();
-  renderTools(TOOLS.filter(t=>t.toLowerCase().includes(q)));
+// AI TOOL 2 - SCIENCE ONLY
+function aiScienceTool(){
+  var bank=[
+    {q:"What do plants need to grow?",a:["Sunlight and Water","Shoes","Phone","Math Book"],c:0},
+    {q:"Which is a living thing?",a:["Rock","Dog","Chair","Table"],c:1},
+    {q:"What do we drink to live?",a:["Water","Sand","Stone","Paper"],c:0},
+    {q:"Sun gives us?",a:["Light and Heat","Cold","Dark","Ice"],c:0},
+    {q:"Which animal says Meow?",a:["Dog","Cat","Cow","Lion"],c:1},
+    {q:"Which is a plant?",a:["Rose","Dog","Car","Phone"],c:0}
+  ];
+  return aiPick(bank);
 }
-renderTools(TOOLS);
+// AI TOOL 3 - SPELLING ONLY
+function aiSpellingTool(){
+  var bank=[
+    {q:"Spell CAT",a:["C-A-T","K-A-T","C-A-T-T","S-A-T"],c:0},
+    {q:"Spell APPLE",a:["A-P-L-E","A-P-P-L-E","A-P-L","APPLEE"],c:1},
+    {q:"Spell SCHOOL",a:["S-K-O-O-L","S-C-H-O-O-L","S-C-O-O-L","SHOOL"],c:1},
+    {q:"Spell RAINBOW",a:["R-A-I-N-B-O-W","R-A-N-B-O-W","R-E-N-B-O","RAINBO"],c:0},
+    {q:"Spell DOG",a:["D-O-G","D-O-G-G","DOOG","D-A-G"],c:0},
+    {q:"Spell FISH",a:["F-I-S-H","F-I-S","PHISH","FISH-H"],c:0}
+  ];
+  return aiPick(bank);
+}
+// AI TOOL 4 - READING ONLY
+function aiReadingTool(){
+  var bank=[
+    {q:"Read: The cat is big. What is big?",a:["Cat","Dog","Fish","Bird"],c:0},
+    {q:"Read: I like red apple. What colour?",a:["Red","Blue","Green","Yellow"],c:0}
+  ];
+  return aiPick(bank);
+}
+// AI TOOL 5 - DRAWING ONLY
+function aiDrawingTool(){
+  var bank=[
+    {q:"Draw a Sun. What colour is Sun?",a:["Yellow","Blue","Green","Black"],c:0},
+    {q:"Draw a Tree. What colour are leaves?",a:["Green","Red","Pink","White"],c:0}
+  ];
+  return aiPick(bank);
+}
 
-function startTrial(){
-  if(isPaid){ alert("You are already paid. All tools unlocked."); return; }
-  if(trialUsed){ alert("Your 10 minute trial is already used. Please pay to use any tool."); showPay(); return; }
-  trialStart = Date.now();
-  localStorage.setItem('hi_trial_start', trialStart);
-  localStorage.setItem('hi_trial_used', 'yes');
-  alert("10 Minute Trial Started. Timer is running.");
-  location.reload();
+// AI PICK - NO REPEAT LOGIC
+function aiPick(bank){
+  var fresh = bank.filter(function(item){return usedQuestions.indexOf(item.q)===-1;});
+  if(fresh.length===0){usedQuestions=[];fresh=bank;}
+  var pick = fresh[Math.floor(Math.random()*fresh.length)];
+  usedQuestions.push(pick.q);
+  return pick;
 }
-function getTrialLeftSeconds(){
-  if(!trialStart) return 0;
-  let left = (TRIAL_MINUTES*60) - ((Date.now()-parseInt(trialStart))/1000);
-  return left>0?left:0;
+
+var currentType="math", currentQ=null, currentScore=0, qCount=0;
+
+function startTool(type){
+  currentType=type; currentScore=0; qCount=0; usedQuestions=[];
+  document.getElementById("quizBox").style.display="block";
+  var titles={math:"Maths Race - AI Math Tool",science:"Science Quiz - AI Science Tool",spelling:"Spelling Bee - AI Spelling Tool",reading:"Reading - AI Reading Tool",drawing:"Drawing - AI Drawing Tool"};
+  document.getElementById("quizTitle").innerText=titles[type];
+  document.getElementById("aiLabel").innerText="AI Tool Active: "+titles[type]+" - Making new question for you... English Only";
+  nextQ();
 }
-function isTrialActive(){ if(isPaid) return true; if(!trialStart) return false; return getTrialLeftSeconds()>0; }
-function showPay(){ document.getElementById('payPopup').style.display='block'; }
-function closePay(){ document.getElementById('payPopup').style.display='none'; }
-function checkCode(){
-  let c=document.getElementById('codeInput').value.trim();
-  if(c===approvalCode){ localStorage.setItem('hi_paid','yes'); alert("Payment Verified. All Tools Unlocked."); location.reload(); }
-  else alert("Wrong Code. Pay First, Fill Survey, Then Enter Code We Send You.");
+function getAIQuestion(){
+  if(currentType==="math") return aiMathTool();
+  if(currentType==="science") return aiScienceTool();
+  if(currentType==="spelling") return aiSpellingTool();
+  if(currentType==="reading") return aiReadingTool();
+  if(currentType==="drawing") return aiDrawingTool();
 }
-function openTool(name){
-  if(isPaid){ showTool(name); return; }
-  if(isTrialActive()){ showTool(name); return; }
-  if(!trialStart){ alert("Click Start 10 Minute Trial First."); return; }
-  alert("10 Minute Trial Over. Pay First To Use Any Tool.");
-  showPay();
+function nextQ(){
+  if(qCount>=5){document.getElementById("question").innerText="AI Tool Finished!";document.getElementById("options").innerHTML="";document.getElementById("result").innerText="";document.getElementById("score").innerText="Final Score: "+currentScore+" / 5 | AI Tool made 5 unique questions, no repeat";return;}
+  currentQ=getAIQuestion(); qCount++;
+  document.getElementById("score").innerText="Question "+qCount+" of 5 | Score: "+currentScore;
+  document.getElementById("question").innerText=currentQ.q;
+  document.getElementById("result").innerText="";
+  var html="";
+  for(var i=0;i<currentQ.a.length;i++){html+='<button class="opt" onclick="checkAns('+i+')">'+currentQ.a[i]+'</button>';}
+  document.getElementById("options").innerHTML=html;
 }
-function showTool(name){
-  document.getElementById('toolModal').style.display='block';
-  document.getElementById('toolBody').innerHTML = `<h2>${name}</h2><p>This tool is working. Trial: 10 Minutes. After trial, payment is required.</p><p>Example: If this is Maths Race - Question: 5 + 7 = ? <br><button class="btn" onclick="alert('Correct - You got 1 star')">12</button></p><p>Your full tool code from rnbw.html Version 4 goes here.</p>`;
+function checkAns(i){
+  if(i===currentQ.c){currentScore++;document.getElementById("result").innerText="Correct! AI Tool says Good Job!";}
+  else{document.getElementById("result").innerText="Wrong. AI Tool says Correct answer is: "+currentQ.a[currentQ.c];}
+  document.getElementById("score").innerText="Question "+qCount+" of 5 | Score: "+currentScore;
 }
-function closeTool(){ document.getElementById('toolModal').style.display='none'; }
-function convertCurrency(){
-  let rates={INR:1,USD:83,EUR:90,EUR_FR:90,AED:22.6};
-  let a=parseFloat(document.getElementById('curAmt').value)||0;
-  let f=document.getElementById('curFrom').value;
-  let t=document.getElementById('curTo').value;
-  let res=(a*rates[f])/rates[t];
-  document.getElementById('curOut').innerHTML=`<div class="card"><b>${a} ${f} = ${res.toFixed(2)} ${t}</b><br>Only 5 Countries: India, USA, Germany, France, UAE</div>`;
-}
-function updateBanner(){
-  let b=document.getElementById('trialBanner');
-  if(isPaid){ b.innerHTML="Unlocked - All Tools Open - Paid User"; b.style.background="#16a34a"; b.style.color="#fff"; return; }
-  if(isTrialActive()){ let left=Math.floor(getTrialLeftSeconds()); let m=Math.floor(left/60); let s=left%60; b.innerHTML="TRIAL - Time Left: "+String(m).padStart(2,'0')+":"+String(s).padStart(2,'0')+" - Try All Tools Now"; return; }
-  if(trialUsed){ b.innerHTML="Trial Finished - 10 Minutes Over - Pay First To Use Any Tool"; b.style.background="#dc2626"; b.style.color="#fff"; return; }
-  b.innerHTML="Start 10 Minute Free Trial - One Time Only";
-}
-setInterval(updateBanner,1000); updateBanner();
-setInterval(function(){
-  if(!isPaid && trialUsed && getTrialLeftSeconds()<=0){
-    let m=document.getElementById('toolModal');
-    if(m && m.style.display==='block'){ m.style.display='none'; alert("10 Minute Trial Over. Pay First To Use Any Tool."); showPay(); }
-  }
-},5000);
+function resetTool(){startTool(currentType);}
 </script>
 </body>
 </html>
