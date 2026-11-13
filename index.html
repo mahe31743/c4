@@ -3,155 +3,155 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hi Rainbow - 84 Tools - Each Tool Uses AI Tool</title>
+<title>MAHESWARI & VIBGYOR - 90 Tools</title>
 <style>
-body{font-family:Arial,sans-serif;margin:0;background:#fff7ed}
-header{background:#ff5a8a;color:#fff;padding:16px;text-align:center}
-select{padding:10px;font-size:16px;border-radius:8px}
-.wrap{max-width:900px;margin:auto;padding:16px}
-.card{background:#fff;border:2px solid #eee;border-radius:14px;padding:16px;margin:12px 0}
-button{padding:12px 18px;border:0;border-radius:10px;background:#2563eb;color:#fff;font-size:16px;cursor:pointer;margin:6px 6px 0 0}
-button.green{background:#16a34a} button.orange{background:#ea580c} button.pink{background:#db2777}
-.q{font-size:22px;font-weight:bold} .opt{display:block;width:100%;text-align:left;background:#f1f5f9;color:#111;margin-top:6px}
-.price{font-size:22px;font-weight:bold;color:#16a34a}
+*{box-sizing:border-box} body{margin:0;font-family:Arial,sans-serif;background:#f2f2f2;text-align:center}
+header{background:linear-gradient(90deg,#8e44ad,#e74c3c,#f39c12,#27ae60,#2980b9);color:#fff;padding:20px 10px}
+header h1{margin:0;font-size:32px} header p{margin:8px 0}
+.badge{background:#fff;color:#000;padding:6px 12px;border-radius:20px;display:inline-block;font-weight:bold}
+.card{background:#fff;margin:12px;padding:14px;border-radius:12px;box-shadow:0 2px 8px #ccc}
+button{padding:12px 16px;margin:6px;border:0;border-radius:10px;cursor:pointer;font-weight:bold;font-size:15px;background:#2980b9;color:#fff}
+button:hover{opacity:.85} input,select,textarea{padding:12px;width:90%;max-width:400px;margin:6px;border:1px solid #ccc;border-radius:10px;font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:10px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(4,1fr)}}
+.green{color:green;font-weight:bold}.small{font-size:13px;color:#555}
+table{width:100%;border-collapse:collapse;margin-top:10px} td,th{border:1px solid #ddd;padding:8px}
+.qbtn{background:#eee;color:#000;width:100%}
 </style>
 </head>
 <body>
 <header>
-<h1>Hi Rainbow - 84 Tools - Each Tool Uses AI Tool</h1>
-<p>English Only - 7 Countries - No Repeat</p>
-<select id="country" onchange="changeCountry()">
-<option>India</option><option>USA</option><option>UK</option><option>Canada</option><option>Australia</option><option>China</option><option>Korea</option>
-</select>
-<p id="countryInfo"></p><p class="price" id="priceInfo"></p><p id="payInfo"></p>
+<h1>🌈 MAHESWARI & VIBGYOR</h1>
+<p>90 Tools - Owner Free - Others: 15 Min Trial - After Trial Pay Must</p>
+<span class="badge">RAINBOW10 - 10% OFF</span>
+<p id="trialTimer" class="badge" style="margin-top:8px;display:inline-block">Checking...</p>
 </header>
-<div class="wrap">
 <div class="card">
-<h2>Choose Tool - Each Tool Uses Its Own AI Tool</h2>
-<button onclick="startTool('math')">Maths Race - AI Math Tool</button>
-<button class="green" onclick="startTool('science')">Science Quiz - AI Science Tool</button>
-<button class="orange" onclick="startTool('spelling')">Spelling Bee - AI Spelling Tool</button>
-<button class="pink" onclick="startTool('reading')">Reading - AI Reading Tool</button>
-<button onclick="startTool('drawing')">Drawing - AI Drawing Tool</button>
-<p>Each button calls a different AI Tool. No repeat.</p>
+<h2>🔐 OWNER LOGIN</h2>
+<input id="ownerInput" placeholder="Enter Code">
+<button onclick="checkOwner()">UNLOCK - OWNER MODE</button>
+<button onclick="logoutOwner()">LOGOUT - TEST AS OTHERS</button>
+<p id="ownerMsg" class="green"></p>
 </div>
-<div class="card" id="quizBox" style="display:none">
-<h2 id="quizTitle"></h2>
-<p id="aiLabel" style="color:#db2777;font-weight:bold"></p>
-<p id="score"></p>
-<p class="q" id="question"></p>
-<div id="options"></div>
-<p id="result"></p>
-<button onclick="nextQ()">Next Question - AI Makes New Question</button>
-<button onclick="resetTool()">Restart - AI Makes New Set</button>
+<div class="card" id="payCard">
+<h2>💳 Unlock All Tools</h2>
+<select id="countrySelect" onchange="updatePrice()">
+<option value="India">India - Rs.999</option>
+<option value="Korea">Korea - ₩30000 KRW</option>
+<option value="USA">USA - $12</option>
+<option value="UK">UK - £10</option>
+<option value="UAE">UAE - AED 45</option>
+</select>
+<p id="priceText"><b>Price: Rs.999 - With RAINBOW10: Rs.899</b></p>
+<button onclick="window.open('https://razorpay.com/','_blank')">Pay On Razorpay</button>
+<button style="background:#f1c40f;color:#000" onclick="window.open('https://docs.google.com/forms/','_blank')">Fill Survey After Payment</button>
+<br><input id="unlockCode" placeholder="Enter Unlock Code - VIBGYOR100 for Testing">
+<br><button style="background:#27ae60" onclick="unlockAll()">Unlock All Tools</button>
+<p id="payMsg"></p>
+<p class="small">RAINBOW10 = 10% OFF. VIBGYOR100 = 100% OFF - Unlimited - Testing Only.</p>
 </div>
-<div class="card"><h2>Payment - Changes By Country</h2><p id="payBox"></p><button class="green">Pay Now</button></div>
-</div>
+<div class="card"><h2>Price Table - MAHESWARI & VIBGYOR</h2><table><tr><th>Who</th><th>Country</th><th>Price</th><th>With RAINBOW10</th></tr><tr><td><b>Owner</b></td><td>Any</td><td><b>FREE</b></td><td><b>FREE</b></td></tr><tr><td>Others</td><td>India</td><td>Rs.999</td><td>Rs.899</td></tr><tr><td>Others</td><td>Korea</td><td>₩30000</td><td>₩27000</td></tr><tr><td>Others</td><td>USA</td><td>$12</td><td>$10.80</td></tr></table></div>
+<div id="mainGrid" class="card"><h2>90 Tools - MAHESWARI & VIBGYOR - Click Any Tool - Opens In New Window</h2><div id="toolGrid" class="grid"></div></div>
+<div id="singleTool" class="card" style="display:none"><h2 id="singleTitle"></h2><p id="qText"></p><div id="qOpts"></div><button onclick="window.close()">CLOSE</button></div>
 <script>
-// PRICES - 7 COUNTRIES
-var prices={India:{p:"Rs.999",pay:"GPay / PhonePe / UPI"},USA:{p:"$30",pay:"Stripe / PayPal"},UK:{p:"£25",pay:"Stripe / PayPal"},Canada:{p:"$40 CAD",pay:"Stripe / PayPal"},Australia:{p:"$45 AUD",pay:"Stripe / PayPal"},China:{p:"¥300",pay:"WeChat / Alipay"},Korea:{p:"₩35,000",pay:"KakaoPay / Card"}};
-function changeCountry(){var c=document.getElementById("country").value;document.getElementById("countryInfo").innerText="Country: "+c+" | Language: English Only";document.getElementById("priceInfo").innerText="Price: "+prices[c].p;document.getElementById("payInfo").innerText="Payment: "+prices[c].pay;document.getElementById("payBox").innerText="Country: "+c+" | Price: "+prices[c].p+" | Payment: "+prices[c].pay;}
-changeCountry();
-
-// EACH TOOL USES ITS OWN AI TOOL - NO SHARED LIST
-var usedQuestions = []; // AI Tool remembers used questions - No Repeat
-
-// AI TOOL 1 - MATH ONLY
-function aiMathTool(){
-  var bank=[
-    {q:"5 + 7 = ?",a:["11","12","13","10"],c:1},
-    {q:"10 - 3 = ?",a:["7","8","6","9"],c:0},
-    {q:"2 x 4 = ?",a:["6","7","8","9"],c:2},
-    {q:"9 + 6 = ?",a:["14","15","16","13"],c:1},
-    {q:"20 - 5 = ?",a:["15","14","16","13"],c:0},
-    {q:"3 x 3 = ?",a:["8","9","6","12"],c:1},
-    {q:"8 + 8 = ?",a:["15","16","14","17"],c:1}
-  ];
-  return aiPick(bank);
+var PRICES={India:999,Korea:30000,USA:12,UK:10,UAE:45};
+var CURRENCY={India:"Rs.",Korea:"₩",USA:"$",UK:"£",UAE:"AED "};
+var isOwner = localStorage.getItem("ownerMode")==="yes" || localStorage.getItem("unlimitedFree")==="yes" || localStorage.getItem("paidUnlock")==="yes";
+var params=new URLSearchParams(location.search);
+if(params.get("owner")==="1"){ isOwner=true; localStorage.setItem("ownerMode","yes"); }
+function updatePrice(){ var c=document.getElementById("countrySelect").value; var base=PRICES[c], cur=CURRENCY[c]; document.getElementById("priceText").innerHTML="<b>Price: "+cur+base+" - With RAINBOW10: "+cur+Math.round(base*0.9)+"</b>"; }
+updatePrice();
+function checkOwner(){ var v=document.getElementById("ownerInput").value.trim().toUpperCase(); if(v==="OWNER123" || v==="VIBGYOR100"){ localStorage.setItem("ownerMode","yes"); isOwner=true; document.getElementById("ownerMsg").innerText="✅ Owner Mode ON - MAHESWARI & VIBGYOR"; location.reload(); return; } alert("Wrong Code"); }
+function logoutOwner(){ localStorage.removeItem("ownerMode"); localStorage.removeItem("unlimitedFree"); localStorage.removeItem("paidUnlock"); localStorage.setItem("trialStart", Date.now()); location.href=location.href.split('?')[0]; }
+function unlockAll(){ var code=document.getElementById("unlockCode").value.trim().toUpperCase(); if(code==="VIBGYOR100"){ localStorage.setItem("unlimitedFree","yes"); localStorage.setItem("paidUnlock","yes"); document.getElementById("payMsg").innerText="✅ VIBGYOR100 - 100% OFF - UNLIMITED"; setTimeout(function(){location.reload()},800); return; } if(code==="RAINBOW10"){ var c=document.getElementById("countrySelect").value; document.getElementById("payMsg").innerText="✅ RAINBOW10 - 10% OFF - Pay: "+CURRENCY[c]+Math.round(PRICES[c]*0.9); return; } if(code==="PAID2026"){ localStorage.setItem("paidUnlock","yes"); setTimeout(function(){location.reload()},800); return; } alert("Wrong Code."); }
+if(isOwner){ document.getElementById("trialTimer").innerText="OWNER - TEST ANYTIME"; document.getElementById("payCard").style.display="none"; } else { var start=localStorage.getItem("trialStart"); if(!start){ start=Date.now(); localStorage.setItem("trialStart",start); } function tick(){ var left=900000-(Date.now()-start); if(left<=0){ document.getElementById("trialTimer").innerText="TRIAL ENDED - PAY MUST"; return; } var m=Math.floor(left/60000), s=Math.floor((left%60000)/1000); document.getElementById("trialTimer").innerText="TRIAL: "+m+":"+(s<10?"0"+s:s); } setInterval(tick,1000); tick(); }
+var TOOLS=[]; var NAMES=["Maths Race","Addition Fun","Subtraction Star","Multiplication Master","Division King","Tables Star","Fraction Fun","Decimal Star","Shape Star","Time Star","Money Star","Word Problem Star","Tamil Song Star","Tamil Calendar Star","Quiz Maker","Homework Star","Exam Timer","Notes Maker","Question Paper Star","Super Star"];
+for(var i=1;i<=84;i++){ TOOLS.push({id:i,name:NAMES[(i-1)%NAMES.length]}); }
+TOOLS.push({id:85,name:"Doodle"}); TOOLS.push({id:86,name:"Resume Builder"}); TOOLS.push({id:87,name:"File Size Reducer"}); TOOLS.push({id:88,name:"File Format Converter"}); TOOLS.push({id:89,name:"Programming Learning"}); TOOLS.push({id:90,name:"PDF To Quiz"});
+var COLORS=["#8e44ad","#e74c3c","#f39c12","#27ae60","#2980b9","#e91e63","#00bcd4"];
+var toolId=params.get("tool"); if(toolId){ showSingleTool(parseInt(toolId)); } else { showGrid(); }
+function showGrid(){ var grid=document.getElementById("toolGrid"); grid.innerHTML=""; TOOLS.forEach(function(t,idx){ var b=document.createElement("button"); b.innerText=t.id+". "+t.name+" - New Window"; b.style.background=COLORS[idx%COLORS.length]; if(idx%COLORS.length===2||idx%COLORS.length===3) b.style.color="#000"; b.onclick=function(){ openToolNewWindow(t); }; grid.appendChild(b); }); }
+function openToolNewWindow(t){ var base=location.href.split('?')[0]; var extra=isOwner?"?tool="+t.id+"&owner=1":"?tool="+t.id; var win=window.open(base+extra+"&v="+Date.now(),'_blank','noopener,noreferrer'); if(!win){ alert("Pop-up Blocked - Allow pop-ups, then click again."); } }
+function showSingleTool(id){
+  var t=TOOLS.find(function(x){return x.id===id}); if(!t) return;
+  document.getElementById("mainGrid").style.display="none"; document.getElementById("singleTool").style.display="block";
+  document.getElementById("singleTitle").innerText="MAHESWARI & VIBGYOR - "+t.id+". "+t.name;
+  var div=document.getElementById("qOpts"); document.getElementById("qText").innerText="";
+  if(t.name==="Doodle"){ div.innerHTML='<canvas id="doodle" width="320" height="280" style="border:2px solid #000;background:#fff;touch-action:none"></canvas><br><button onclick="setColor(\'black\')">Black</button><button onclick="setColor(\'red\')">Red</button><button onclick="setColor(\'blue\')">Blue</button><button onclick="setColor(\'green\')">Green</button><button onclick="clearDoodle()">Clear</button><button onclick="saveDoodle()">Save Image</button>'; var c=document.getElementById("doodle"), ctx=c.getContext("2d"), drawing=false, col="black"; window.setColor=function(x){col=x}; window.clearDoodle=function(){ctx.clearRect(0,0,320,280)}; window.saveDoodle=function(){var a=document.createElement("a");a.download="doodle.png";a.href=c.toDataURL("image/png");a.click();}; function pos(e){var r=c.getBoundingClientRect();var x=(e.touches?e.touches[0].clientX:e.clientX)-r.left;var y=(e.touches?e.touches[0].clientY:e.clientY)-r.top;return[x,y];} c.onmousedown=function(e){drawing=true;var p=pos(e);ctx.beginPath();ctx.moveTo(p[0],p[1]);}; c.onmousemove=function(e){if(!drawing)return;var p=pos(e);ctx.strokeStyle=col;ctx.lineWidth=3;ctx.lineTo(p[0],p[1]);ctx.stroke();}; c.onmouseup=function(){drawing=false}; c.ontouchstart=function(e){e.preventDefault();drawing=true;var p=pos(e);ctx.beginPath();ctx.moveTo(p[0],p[1]);}; c.ontouchmove=function(e){e.preventDefault();if(!drawing)return;var p=pos(e);ctx.strokeStyle=col;ctx.lineWidth=3;ctx.lineTo(p[0],p[1]);ctx.stroke();}; c.ontouchend=function(){drawing=false}; return; }
+  if(t.name==="Resume Builder"){ div.innerHTML='<input id="rName" placeholder="Your Name"><br><input id="rJob" placeholder="Job - Ex: Teacher"><br><input id="rSkill" placeholder="Skills"><br><input id="rExp" placeholder="Experience"><br><button onclick="makeResume()">Build Resume</button><div id="resumeOut" style="text-align:left;background:#f9f9f9;padding:12px;margin-top:10px"></div><button onclick="printResume()">Print / Save PDF</button>'; window.makeResume=function(){ var n=document.getElementById("rName").value||"Your Name"; var j=document.getElementById("rJob").value||"Job"; var s=document.getElementById("rSkill").value||"Skills"; var e=document.getElementById("rExp").value||"Experience"; document.getElementById("resumeOut").innerHTML="<h3>"+n+"</h3><p><b>Job:</b> "+j+"</p><p><b>Skills:</b> "+s+"</p><p><b>Experience:</b> "+e+"</p><p><b>Built With MAHESWARI & VIBGYOR</b></p>"; }; window.printResume=function(){window.print();}; return; }
+  if(t.name==="File Size Reducer"){ div.innerHTML='<p>Upload Photo - Reduce Size - Private</p><input type="file" id="sizeFile" accept="image/*"><br><select id="sizeQuality"><option value="0.9">High - 90%</option><option value="0.6">Medium - 60%</option><option value="0.3">Small - 30%</option></select><br><button onclick="reduceSize()">Reduce Size</button><p id="sizeInfo"></p><img id="sizeImg" style="max-width:100%;margin-top:10px">'; window.reduceSize=function(){ var f=document.getElementById("sizeFile").files[0]; if(!f){alert("Select Image First");return;} var q=parseFloat(document.getElementById("sizeQuality").value); var reader=new FileReader(); reader.onload=function(e){var img=new Image();img.onload=function(){ var cv=document.createElement("canvas");cv.width=img.width;cv.height=img.height;cv.getContext("2d").drawImage(img,0,0); var data=cv.toDataURL("image/jpeg",q); document.getElementById("sizeImg").src=data; document.getElementById("sizeInfo").innerText="Original: "+Math.round(f.size/1024)+" KB - Reduced: "+Math.round(data.length*0.75/1024)+" KB"; var a=document.createElement("a");a.href=data;a.download="reduced.jpg";a.innerText="Download Reduced Image";a.style.display="block";a.style.marginTop="10px";div.appendChild(a); };img.src=e.target.result;}; reader.readAsDataURL(f); }; return; }
+  if(t.name==="File Format Converter"){ div.innerHTML='<p>Upload Photo - Convert PNG / JPG / WebP</p><input type="file" id="convFile" accept="image/*"><br><select id="convType"><option value="image/png">Convert To PNG</option><option value="image/jpeg">Convert To JPG</option><option value="image/webp">Convert To WebP</option></select><br><button onclick="convertFile()">Convert Now</button><p id="convInfo"></p><img id="convImg" style="max-width:100%;margin-top:10px">'; window.convertFile=function(){ var f=document.getElementById("convFile").files[0]; if(!f){alert("Select Image First");return;} var type=document.getElementById("convType").value; var reader=new FileReader(); reader.onload=function(e){var img=new Image();img.onload=function(){ var cv=document.createElement("canvas");cv.width=img.width;cv.height=img.height;cv.getContext("2d").drawImage(img,0,0); var data=cv.toDataURL(type,0.9); document.getElementById("convImg").src=data; var ext=type==="image/png"?"png":type==="image/jpeg"?"jpg":"webp"; document.getElementById("convInfo").innerText="Converted To "+ext.toUpperCase(); var a=document.createElement("a");a.href=data;a.download="converted."+ext;a.innerText="Download "+ext.toUpperCase();a.style.display="block";a.style.marginTop="10px";div.appendChild(a); };img.src=e.target.result;}; reader.readAsDataURL(f); }; return; }
+  if(t.name==="Programming Learning"){ div.innerHTML='<p>Learn Programming - Click Lesson - Try Code</p><button onclick="showLesson(\'html\')">1. HTML</button><button onclick="showLesson(\'css\')">2. CSS</button><button onclick="showLesson(\'js\')">3. JavaScript</button><button onclick="showLesson(\'python\')">4. Python</button><button onclick="showLesson(\'quiz\')">5. Quiz</button><div id="lessonBox" style="text-align:left;background:#f9f9f9;padding:12px;margin-top:10px"></div><textarea id="codeBox" style="width:95%;height:100px;padding:10px"></textarea><br><button onclick="runCode()">▶ Run Code</button><div id="codeOut" style="background:#000;color:#0f0;padding:12px;margin-top:10px;text-align:left;min-height:60px">Result Will Show Here...</div>'; window.showLesson=function(type){ var box=document.getElementById("lessonBox"); var code=document.getElementById("codeBox"); if(type==='html'){ box.innerHTML="<b>HTML - Website</b><br>HTML = Structure"; code.value="<h1>Hello MAHESWARI & VIBGYOR</h1>\n<p>I am learning coding!</p>"; } if(type==='css'){ box.innerHTML="<b>CSS - Color</b><br>CSS = Beauty"; code.value="<h1 style='color:red'>I am Red!</h1>"; } if(type==='js'){ box.innerHTML="<b>JavaScript - Calculator</b><br>JS = Brain"; code.value="let a=10;\nlet b=5;\nconsole.log('Sum = ' + (a+b));"; } if(type==='python'){ box.innerHTML="<b>Python - Easiest</b>"; code.value="console.log('Hello Python')"; } if(type==='quiz'){ box.innerHTML="<b>Quiz - What is HTML?</b><br>A) Structure - Answer A"; code.value="console.log(10+5);"; } }; window.runCode=function(){ var c=document.getElementById("codeBox").value; var out=document.getElementById("codeOut"); try{ if(c.includes("<") && c.includes(">")){ out.style.background="#fff"; out.style.color="#000"; out.innerHTML=c; return; } var logs=[]; var oldLog=console.log; console.log=function(m){logs.push(m)}; eval(c); console.log=oldLog; out.style.background="#000"; out.style.color="#0f0"; out.innerText=logs.length?logs.join("\n"):"✅ Code Ran"; }catch(e){ out.innerText="❌ Error: "+e.message; } }; window.showLesson('html'); return; }
+  if(t.name==="PDF To Quiz"){
+    div.innerHTML='<p>Upload PDF - Auto Quiz - Reads ALL Pages - MAHESWARI & VIBGYOR</p><input type="file" id="pdfFile" accept=".pdf"><br><button onclick="readPDF()">📄 Read PDF + Make Quiz</button><p id="pdfStatus" class="small">Select PDF First</p><div id="pdfQuiz" style="text-align:left"></div>';
+    if(!window.pdfjsLib){ var s=document.createElement("script"); s.src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"; document.head.appendChild(s); }
+    window.readPDF=function(){ var f=document.getElementById("pdfFile").files[0]; if(!f){alert("Select PDF First");return;} document.getElementById("pdfStatus").innerText="Reading PDF... ALL Pages..."; var reader=new FileReader(); reader.onload=function(e){ var data=new Uint8Array(e.target.result); pdfjsLib.getDocument({data:data}).promise.then(function(pdf){ var promises=[]; for(var i=1;i<=pdf.numPages;i++){ promises.push(pdf.getPage(i).then(function(page){ return page.getTextContent().then(function(tc){ return tc.items.map(function(it){return it.str}).join(" "); }); })); } Promise.all(promises).then(function(pages){ makeQuizFromText(pages.join(" ")); }); }); }; reader.readAsArrayBuffer(f); };
+    window.makeQuizFromText=function(fullText){ window.pdfAllSentences = fullText.split(".").map(function(s){return s.trim()}).filter(function(s){return s.length>20 && s.length<150}); if(window.pdfAllSentences.length===0){ document.getElementById("pdfStatus").innerText="❌ No Text Found - Try Text PDF"; return; } window.pdfStart = 0; showNextSet(); };
+    window.showNextSet=function(){ var start = window.pdfStart; var sentences = window.pdfAllSentences.slice(start, start+5); if(sentences.length===0){ document.getElementById("pdfStatus").innerText="✅ No More - PDF Finished"; document.getElementById("pdfQuiz").innerHTML="<button onclick='location.reload()'>📄 Upload New PDF</button>"; return; } document.getElementById("pdfStatus").innerText="✅ Qns "+(start+1)+" to "+(start+sentences.length)+" - Total: "+window.pdfAllSentences.length; window.currentQs=sentences.map(function(sent){ var words=sent.split(" ").filter(function(w){return w.length>3}); var hideWord=words[Math.floor(words.length/2)] || words[0]; var qText=sent.replace(hideWord,"_____"); var opts=[hideWord, words[0]||"School", words[words.length-1]||"Book", "VIBGYOR"]; opts.sort(function(){return Math.random()-0.5}); return {q:"Fill Blank From PDF: "+qText, ans:hideWord, opts:opts}; }); window.currentQ=0; window.score=0; var pdfBox=document.getElementById("pdfQuiz"); function showPDFQ(){ var q=window.currentQs[window.currentQ]; document.getElementById("pdfStatus").innerText="Q"+(window.pdfStart+window.currentQ+1)+" / "+window.pdfAllSentences.length+"  |  Score: "+window.score; pdfBox.innerHTML="<b>"+q.q+"</b><br>"; var answered=false; q.opts.forEach(function(o){ var btn=document.createElement("button"); btn.className="qbtn"; btn.innerText=o; btn.onclick=function(){ if(answered) return; answered=true; if(o===q.ans){ window.score++; alert("✅ Correct!"); } else { alert("❌ Wrong - Correct: "+q.ans); } document.getElementById("pdfNext").style.display="block"; }; pdfBox.appendChild(btn); }); var next=document.createElement("button"); next.id="pdfNext"; next.innerText=(window.currentQ===window.currentQs.length-1)?"FINISH SET → See Score":"NEXT → Next Question"; next.style.cssText="background:#27ae60;width:100%;margin-top:12px;display:none"; next.onclick=function(){ window.currentQ++; if(window.currentQ<window.currentQs.length){ showPDFQ(); } else { pdfBox.innerHTML="🎉 Set Finished! Score: "+window.score+" / "+window.currentQs.length+"<br>"; var more=document.createElement("button"); more.innerText="MORE QUESTIONS → Next 5 Qns From Same PDF"; more.style.cssText="background:#8e44ad;width:100%;margin-top:10px"; more.onclick=function(){ window.pdfStart += 5; showNextSet(); }; pdfBox.appendChild(more); var newPdf=document.createElement("button"); newPdf.innerText="📄 Upload New PDF"; newPdf.style.cssText="background:#f39c12;color:#000;width:100%;margin-top:8px"; newPdf.onclick=function(){ location.reload(); }; pdfBox.appendChild(newPdf); } }; pdfBox.appendChild(next); } showPDFQ(); };
+    return;
+  }
+  window.mathTool = t; window.mathSet = 0;
+  window.generateMathsQs = function(tool, setNum){
+    var qs=[];
+    for(var q=0;q<5;q++){
+      var a = tool.id*(q+1)+3 + (setNum*37);
+      var b = q+2 + (setNum*3);
+      if(tool.name.indexOf("Subtraction")>-1){ var big=a+b+5; qs.push({q:"What is "+big+" - "+b+" ?  Difference = ?",ans:String(big-b),opts:[String(big-b),String(big-b+1),String(big-b+2),String(big-b-1)]}); }
+      else if(tool.name.indexOf("Multiplication")>-1||tool.name.indexOf("Tables")>-1){ qs.push({q:"What is "+a+" × "+b+" ?  Product = ?",ans:String(a*b),opts:[String(a*b),String(a*b+1),String(a*b+2),String(a*b-1)]}); }
+      else if(tool.name.indexOf("Division")>-1){ var prod=a*b; qs.push({q:"What is "+prod+" ÷ "+b+" ?  Quotient = ?",ans:String(a),opts:[String(a),String(a+1),String(a+2),String(a-1)]}); }
+      else { qs.push({q:"What is "+a+" + "+b+" ?  Sum = ?",ans:String(a+b),opts:[String(a+b),String(a+b+1),String(a+b+2),String(a+b-1)]}); }
+    }
+    return qs;
+  };
+  window.currentQs = window.generateMathsQs(t, 0);
+  window.currentQ=0; window.score=0; showQ();
 }
-// AI TOOL 2 - SCIENCE ONLY
-function aiScienceTool(){
-  var bank=[
-    {q:"What do plants need to grow?",a:["Sunlight and Water","Shoes","Phone","Math Book"],c:0},
-    {q:"Which is a living thing?",a:["Rock","Dog","Chair","Table"],c:1},
-    {q:"What do we drink to live?",a:["Water","Sand","Stone","Paper"],c:0},
-    {q:"Sun gives us?",a:["Light and Heat","Cold","Dark","Ice"],c:0},
-    {q:"Which animal says Meow?",a:["Dog","Cat","Cow","Lion"],c:1},
-    {q:"Which is a plant?",a:["Rose","Dog","Car","Phone"],c:0}
-  ];
-  return aiPick(bank);
+function showQ(){
+  var q=window.currentQs[window.currentQ];
+  document.getElementById("qText").innerText="Q"+(window.currentQ+1)+" / "+window.currentQs.length+": "+q.q+"  |  Score: "+window.score+"  |  Set: "+(window.mathSet+1);
+  var div=document.getElementById("qOpts"); div.innerHTML="";
+  var answered=false;
+  q.opts.forEach(function(o){
+    var btn=document.createElement("button"); btn.className="qbtn"; btn.innerText=o;
+    btn.onclick=function(){
+      if(answered) return; answered=true;
+      if(o===q.ans){ window.score++; alert("✅ Correct! Score: "+window.score); }
+      else { alert("❌ Wrong - Correct: "+q.ans); }
+      div.querySelectorAll("button").forEach(function(b){ if(b.id!=="nextBtn") b.disabled=true; b.style.opacity="0.6"; });
+      document.getElementById("nextBtn").style.display="block";
+      document.getElementById("qText").innerText="Q"+(window.currentQ+1)+" / "+window.currentQs.length+": "+q.q+"  |  Score: "+window.score+"  |  Set: "+(window.mathSet+1);
+    };
+    div.appendChild(btn);
+  });
+  var next=document.createElement("button");
+  next.id="nextBtn";
+  next.innerText = (window.currentQ === window.currentQs.length-1) ? "FINISH → See Score" : "NEXT → Next Question";
+  next.style.cssText="background:#27ae60;width:100%;margin-top:12px;padding:14px;font-size:16px;display:none";
+  next.onclick=function(){
+    window.currentQ++;
+    if(window.currentQ < window.currentQs.length){ showQ(); }
+    else {
+      document.getElementById("qText").innerText="🎉 Set Finished! Score: "+window.score+" / "+window.currentQs.length;
+      div.innerHTML="";
+      var more=document.createElement("button");
+      more.innerText="MORE QUESTIONS → Next 5 NEW Qns";
+      more.style.cssText="background:#8e44ad;width:100%;margin-top:10px;padding:14px;font-size:16px";
+      more.onclick=function(){ window.mathSet++; window.currentQs = window.generateMathsQs(window.mathTool, window.mathSet); window.currentQ=0; window.score=0; showQ(); };
+      div.appendChild(more);
+      var restart=document.createElement("button");
+      restart.innerText="🔁 Restart Same Set";
+      restart.style.cssText="background:#f39c12;color:#000;width:100%;margin-top:8px";
+      restart.onclick=function(){ location.reload(); };
+      div.appendChild(restart);
+    }
+  };
+  div.appendChild(next);
+  var skip=document.createElement("button");
+  skip.innerText="SKIP → Next Question";
+  skip.style.cssText="background:#f39c12;color:#000;width:100%;margin-top:8px";
+  skip.onclick=function(){ window.currentQ++; if(window.currentQ < window.currentQs.length){ showQ(); } else { document.getElementById("qText").innerText="🎉 Finished! Score: "+window.score+" / "+window.currentQs.length; div.innerHTML=""; } };
+  div.appendChild(skip);
 }
-// AI TOOL 3 - SPELLING ONLY
-function aiSpellingTool(){
-  var bank=[
-    {q:"Spell CAT",a:["C-A-T","K-A-T","C-A-T-T","S-A-T"],c:0},
-    {q:"Spell APPLE",a:["A-P-L-E","A-P-P-L-E","A-P-L","APPLEE"],c:1},
-    {q:"Spell SCHOOL",a:["S-K-O-O-L","S-C-H-O-O-L","S-C-O-O-L","SHOOL"],c:1},
-    {q:"Spell RAINBOW",a:["R-A-I-N-B-O-W","R-A-N-B-O-W","R-E-N-B-O","RAINBO"],c:0},
-    {q:"Spell DOG",a:["D-O-G","D-O-G-G","DOOG","D-A-G"],c:0},
-    {q:"Spell FISH",a:["F-I-S-H","F-I-S","PHISH","FISH-H"],c:0}
-  ];
-  return aiPick(bank);
-}
-// AI TOOL 4 - READING ONLY
-function aiReadingTool(){
-  var bank=[
-    {q:"Read: The cat is big. What is big?",a:["Cat","Dog","Fish","Bird"],c:0},
-    {q:"Read: I like red apple. What colour?",a:["Red","Blue","Green","Yellow"],c:0}
-  ];
-  return aiPick(bank);
-}
-// AI TOOL 5 - DRAWING ONLY
-function aiDrawingTool(){
-  var bank=[
-    {q:"Draw a Sun. What colour is Sun?",a:["Yellow","Blue","Green","Black"],c:0},
-    {q:"Draw a Tree. What colour are leaves?",a:["Green","Red","Pink","White"],c:0}
-  ];
-  return aiPick(bank);
-}
-
-// AI PICK - NO REPEAT LOGIC
-function aiPick(bank){
-  var fresh = bank.filter(function(item){return usedQuestions.indexOf(item.q)===-1;});
-  if(fresh.length===0){usedQuestions=[];fresh=bank;}
-  var pick = fresh[Math.floor(Math.random()*fresh.length)];
-  usedQuestions.push(pick.q);
-  return pick;
-}
-
-var currentType="math", currentQ=null, currentScore=0, qCount=0;
-
-function startTool(type){
-  currentType=type; currentScore=0; qCount=0; usedQuestions=[];
-  document.getElementById("quizBox").style.display="block";
-  var titles={math:"Maths Race - AI Math Tool",science:"Science Quiz - AI Science Tool",spelling:"Spelling Bee - AI Spelling Tool",reading:"Reading - AI Reading Tool",drawing:"Drawing - AI Drawing Tool"};
-  document.getElementById("quizTitle").innerText=titles[type];
-  document.getElementById("aiLabel").innerText="AI Tool Active: "+titles[type]+" - Making new question for you... English Only";
-  nextQ();
-}
-function getAIQuestion(){
-  if(currentType==="math") return aiMathTool();
-  if(currentType==="science") return aiScienceTool();
-  if(currentType==="spelling") return aiSpellingTool();
-  if(currentType==="reading") return aiReadingTool();
-  if(currentType==="drawing") return aiDrawingTool();
-}
-function nextQ(){
-  if(qCount>=5){document.getElementById("question").innerText="AI Tool Finished!";document.getElementById("options").innerHTML="";document.getElementById("result").innerText="";document.getElementById("score").innerText="Completed";return;}
-  currentQ=getAIQuestion(); qCount++;
-  document.getElementById("score").innerText="Question "+qCount+" of 5 | Score: "+currentScore;
-  document.getElementById("question").innerText=currentQ.q;
-  document.getElementById("result").innerText="";
-  var html="";
-  for(var i=0;i<currentQ.a.length;i++){html+='<button class="opt" onclick="checkAns('+i+')">'+currentQ.a[i]+'</button>';} 
-  document.getElementById("options").innerHTML=html;
-}
-function checkAns(i){
-  if(i===currentQ.c){currentScore++;document.getElementById("result").innerText="Correct! AI Tool says Good Job!";}
-  else{document.getElementById("result").innerText="Wrong. AI Tool says Correct answer is: "+currentQ.a[currentQ.c];}
-  document.getElementById("score").innerText="Question "+qCount+" of 5 | Score: "+currentScore;
-}
-function resetTool(){startTool(currentType);}
 </script>
 </body>
 </html>
