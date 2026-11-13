@@ -3,426 +3,371 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hi Rainbow - VIBGYOR - I And Others - Pay Must - Equal For Others</title>
+<title>VIBGYOR - 90 Tools</title>
 <style>
-body{font-family:Arial,sans-serif;margin:0;background:#fff}
-header{background:linear-gradient(90deg,#8B00FF,#4B0082,#0000FF,#00FF00,#FFFF00,#FF7F00,#FF0000);color:#fff;padding:18px;text-align:center;text-shadow:1px 1px 2px #000}
-select{padding:10px;font-size:16px;border-radius:8px}
-.wrap{max-width:1000px;margin:auto;padding:16px}
-.card{background:#fff;border:3px solid #8B00FF;border-radius:14px;padding:16px;margin:12px 0}
-button{padding:10px 14px;border:0;border-radius:10px;background:#4B0082;color:#fff;font-size:14px;cursor:pointer;margin:4px}
-button.green{background:#00A651} button.orange{background:#FF7F00} button.red{background:#FF0000} button.owner{background:#000;color:#FFD700;border:2px solid #FFD700} button.newwin{background:#fff;color:#000;border:2px solid #000} button.song{background:#FF0000} button.cal{background:#FF7F00} button.discount{background:#16a34a;color:#fff} button.trial{background:#00A651;font-size:18px;padding:14px 22px} button.paymust{background:#FF0000;font-size:20px;padding:16px 26px;border:3px solid #000}
-input{padding:12px;font-size:16px;border-radius:8px;border:2px solid #000;width:80%;text-transform:uppercase;text-align:center}
-input[type=date]{text-transform:none}
-.q{font-size:22px;font-weight:bold} .opt{display:block;width:100%;text-align:left;background:#f1f5f9;color:#111;margin-top:6px}
-.price{font-size:22px;font-weight:bold;color:#00A651}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-@media(max-width:600px){.grid{grid-template-columns:1fr}}
-.paybox{background:#E6FFE6;border:3px solid #00A651;border-radius:12px;padding:14px;margin-top:10px;text-align:center}
-.vibgyor{display:flex;gap:4px;margin:10px 0}.vibgyor div{flex:1;padding:8px;color:#fff;text-align:center;font-weight:bold;border-radius:8px;font-size:12px}
-.v{background:#8B00FF}.i{background:#4B0082}.b{background:#0000FF}.g{background:#00A651}.y{background:#FFD700;color:#000}.o{background:#FF7F00}.r{background:#FF0000}
-.ownerbox{background:#000;color:#FFD700;border-radius:12px;padding:14px;text-align:center;margin:10px 0}
-.othersbox{background:#E6F0FF;border:3px solid #0000FF;border-radius:12px;padding:14px;text-align:center;margin:10px 0}
-.songbox{background:#FFF0F0;border:3px solid #FF0000;border-radius:12px;padding:14px;margin:10px 0}
-.calbox{background:#FFF7ED;border:3px solid #FF7F00;border-radius:12px;padding:14px;margin:10px 0}
-.discountbox{background:#ECFDF5;border:3px solid #16a34a;border-radius:12px;padding:14px;text-align:center;margin:10px 0}
-.notfree{background:#FF0000;color:#fff;border-radius:12px;padding:14px;text-align:center;margin:10px 0;font-weight:bold;font-size:18px}
-.trialbox{background:#00A651;color:#fff;border-radius:12px;padding:16px;text-align:center;margin:10px 0}
-.trialTimer{background:#000;color:#FFD700;font-size:28px;font-weight:bold;padding:10px;border-radius:10px;margin:10px 0}
-.paymustbox{background:#FF0000;color:#fff;border:4px solid #000;border-radius:12px;padding:16px;text-align:center;margin:10px 0;display:none}
-table{width:100%;border-collapse:collapse;margin-top:10px} th,td{border:1px solid #ddd;padding:8px;text-align:center;font-size:13px} th{background:#0000FF;color:#fff}
+*{box-sizing:border-box} body{margin:0;font-family:Arial,sans-serif;background:#f2f2f2;text-align:center}
+header{background:linear-gradient(90deg,#8e44ad,#e74c3c,#f39c12,#27ae60,#2980b9);color:#fff;padding:20px 10px}
+header h1{margin:0;font-size:32px} header p{margin:8px 0}
+.badge{background:#fff;color:#000;padding:6px 12px;border-radius:20px;display:inline-block;font-weight:bold}
+.card{background:#fff;margin:12px;padding:14px;border-radius:12px;box-shadow:0 2px 8px #ccc}
+button{padding:12px 16px;margin:6px;border:0;border-radius:10px;cursor:pointer;font-weight:bold;font-size:15px;background:#2980b9;color:#fff}
+button:hover{opacity:.85} input,select,textarea{padding:12px;width:90%;max-width:400px;margin:6px;border:1px solid #ccc;border-radius:10px;font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:10px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(4,1fr)}}
+.green{color:green;font-weight:bold}.small{font-size:13px;color:#555}
+table{width:100%;border-collapse:collapse;margin-top:10px} td,th{border:1px solid #ddd;padding:8px}
+.qbtn{background:#eee;color:#000;width:100%}
 </style>
 </head>
 <body>
 <header>
-<h1>Hi Rainbow - VIBGYOR - 84 Tools - I And Others</h1>
-<p>English Only - 8 Countries - VIBGYOR - Tamil Calendar - Tamil Songs - I And Others - Same Rule For All Others</p>
-<div class="notfree" style="background:#000;color:#FFD700">I - OWNER MAHESWARI - TOTALLY FREE - OTHERS - ALL USERS - 15 MIN TRIAL - AFTER TRIAL PAY MUST - SAME FOR ALL OTHERS - 10% DISCOUNT FOR ALL OTHERS</div>
-<div class="vibgyor"><div class="v">V Violet</div><div class="i">I Indigo</div><div class="b">B Blue</div><div class="g">G Green</div><div class="y">Y Yellow</div><div class="o">O Orange</div><div class="r">R Red</div></div>
-<select id="country" onchange="changeCountry()"><option>India</option><option>USA</option><option>UK</option><option>Canada</option><option>Australia</option><option>China</option><option>Korea</option><option>Germany</option></select>
-<p id="countryInfo"></p><p class="price" id="priceInfo"></p><p id="payInfo"></p>
-<p id="discountPriceInfo" style="font-size:20px;font-weight:bold;color:#FFD700"></p>
-<button class="newwin" onclick="openNewWindow()">Open In New Window - Click Here</button>
+<h1>🌈 VIBGYOR</h1>
+<p>90 Tools - Owner Free - Others: 15 Min Trial - After Trial Pay Must</p>
+<span class="badge">RAINBOW10 - 10% OFF - SAME FOR ALL OTHERS</span>
+<p id="trialTimer" class="badge" style="margin-top:8px;display:inline-block">Checking...</p>
 </header>
-<div class="wrap">
-
-<div class="ownerbox">
-<p style="font-size:22px;font-weight:bold;margin:0">I - Owner - Maheswari - Totally Free</p>
-<p style="margin:6px 0">I Am Owner - I Never Pay - No Trial - No Timer - No Pay Must - Only I Am Free</p>
-<p id="ownerStatus" style="margin:6px 0">Not In I Mode - You Are In Others Mode Now - Others Must Pay After Trial</p>
-<button class="owner" onclick="ownerLogin()">I - Owner Maheswari - Totally Free - Click Here - I Only</button>
-<button class="owner" onclick="ownerLogout()" style="display:none" id="logoutBtn">Exit I Mode</button>
+<div class="card">
+<h2>🔐 OWNER LOGIN</h2>
+<input id="ownerInput" placeholder="Enter Code">
+<button onclick="checkOwner()">UNLOCK - OWNER MODE</button>
+<button onclick="logoutOwner()">LOGOUT - TEST AS OTHERS</button>
+<p id="ownerMsg" class="green"></p>
+<p class="small">Owner Test Link: ?owner=1 - Saved In This Browser - Test Anytime.</p>
 </div>
-
-<div class="othersbox">
-<p style="font-size:22px;font-weight:bold;margin:0;color:#0000FF">OTHERS - All Users - All Countries - Same Rule</p>
-<p style="margin:6px 0;font-weight:bold">Others = Everyone Except Owner - All Others Get Same: 15 Min Trial Free - After Trial Pay Must - 10% Discount With RAINBOW10 - Same For All Others</p>
-<p style="margin:6px 0">Others: India, USA, UK, Canada, Australia, China, Korea, Germany - All Same - No Difference Among Others</p>
+<div class="card" id="payCard">
+<h2>💳 Unlock All Tools - Pay Must After Trial</h2>
+<p class="small">Pay First - Fill Survey - Then Enter Code We Send You.</p>
+<select id="countrySelect" onchange="updatePrice()">
+<option value="India">India - Rs.999</option>
+<option value="Korea">Korea - ₩30000 KRW</option>
+<option value="USA">USA - $12</option>
+<option value="UK">UK - £10</option>
+<option value="UAE">UAE - AED 45</option>
+</select>
+<p id="priceText"><b>Price: Rs.999 - With RAINBOW10: Rs.899</b></p>
+<button onclick="window.open('https://razorpay.com/','_blank')">Pay On Razorpay - New Window</button>
+<button style="background:#f1c40f;color:#000" onclick="window.open('https://docs.google.com/forms/','_blank')">Fill Survey Form After Payment - New Window</button>
+<br><input id="unlockCode" placeholder="Enter Unlock Code - VIBGYOR100 for Testing">
+<br><button style="background:#27ae60" onclick="unlockAll()">Unlock All Tools</button>
+<p id="payMsg"></p>
+<p class="small">Offer: Type RAINBOW10 for 10% OFF. Type VIBGYOR100 for 100% OFF - Unlimited - Testing Only.</p>
+<button onclick="window.open('https://www.youtube.com/results?search_query=tamil+songs+for+kids','_blank')">🎵 OPEN TAMIL SONGS - NEW WINDOW</button>
+<button onclick="window.open('https://www.google.com/search?q=tamil+calendar+today','_blank')">📅 OPEN TAMIL CALENDAR - NEW WINDOW</button>
 </div>
-
-<div class="paymustbox" id="payMustBox">
-<p style="font-size:26px;font-weight:bold;margin:0">PAY MUST - OTHERS - TRIAL FINISHED</p>
-<p style="font-size:18px;margin:6px 0">Others: Your 15 Min Trial Is Over - You Must Pay Now - Tools Locked - Same For All Others</p>
-<p id="payMustPrice" style="font-size:20px;font-weight:bold"></p>
-<button class="paymust" onclick="payNowQR()">PAY MUST - OTHERS - PAY NOW - MUST PAY</button>
-<p style="margin-top:8px">Others: Use RAINBOW10 - 10% Off - Same For All Others - India Rs.999 -&gt; Rs.899 - USA $30 -&gt; $27 - Germany €28 -&gt; €25.20</p>
-</div>
-
-<div class="trialbox" id="trialBox">
-<p style="font-size:22px;font-weight:bold;margin:0">OTHERS - 15 Min Free Trial - Same For All Others</p>
-<p id="trialStatus" style="margin:6px 0">Others: Trial Not Started - Click Below - 15 Min Free - After Trial Pay Must - I Does Not Need Trial - I Is Free</p>
-<div class="trialTimer" id="trialTimer">15:00 - Trial Not Started - Others Only</div>
-<button class="trial" id="startTrialBtn" onclick="startTrial()">OTHERS - Start 15 Min Free Trial - Free - Others Only</button>
-<button style="background:#000;color:#fff" onclick="resetTrialForTest()">Reset Trial - For Testing Only</button>
-</div>
-
-<div class="discountbox" id="discountBox">
-<p style="font-size:20px;font-weight:bold;margin:0;color:#16a34a">OTHERS - 10% Discount - Same For All Others - I Does Not Need Discount - I Is Free</p>
-<p style="margin:6px 0">Others Use Code <b>RAINBOW10</b> - 10% Off - Same For All Others - Still Must Pay - Pay Must - I Is Free, Others Must Pay</p>
-<input id="discountInput" placeholder="OTHERS - TYPE DISCOUNT CODE - RAINBOW10 - Others Only">
-<br><br>
-<button class="discount" style="font-size:18px;padding:14px 22px" onclick="applyDiscount()">Apply 10% Discount - Others Only - Still Must Pay</button>
-<button class="discount" style="font-size:14px;padding:10px 16px;background:#000" onclick="removeDiscount()">Remove Discount</button>
-<p id="discountStatus" style="font-weight:bold;margin-top:8px"></p>
+<div class="card">
+<h2>Price Table - Same For All Others</h2>
 <table>
-<tr><th>Group</th><th>Country</th><th>Pay Must Price - With RAINBOW10</th></tr>
-<tr><td>I - Owner</td><td>Maheswari</td><td>Free - Rs.0 - No Pay Must</td></tr>
-<tr><td>Others</td><td>India</td><td>Rs.899 - Pay Must</td></tr>
-<tr><td>Others</td><td>USA</td><td>$27 - Pay Must</td></tr>
-<tr><td>Others</td><td>UK</td><td>£22.50 - Pay Must</td></tr>
-<tr><td>Others</td><td>Canada</td><td>$36 CAD - Pay Must</td></tr>
-<tr><td>Others</td><td>Australia</td><td>$40.50 AUD - Pay Must</td></tr>
-<tr><td>Others</td><td>China</td><td>¥180 CNY - Pay Must</td></tr>
-<tr><td>Others</td><td>Korea</td><td>₩36000 KRW - Pay Must</td></tr>
-<tr><td>Others</td><td>Germany</td><td>€25.20 EUR - Pay Must</td></tr>
+<tr><th>Who</th><th>Country</th><th>Price</th><th>With RAINBOW10</th></tr>
+<tr><td><b>Owner</b></td><td>Any</td><td><b>FREE</b></td><td><b>FREE</b></td></tr>
+<tr><td>Others</td><td>India</td><td>Rs.999</td><td>Rs.899</td></tr>
+<tr><td>Others</td><td>Korea</td><td>₩30000 KRW</td><td>₩27000 KRW</td></tr>
+<tr><td>Others</td><td>USA</td><td>$12</td><td>$10.80</td></tr>
 </table>
 </div>
-
-<div class="card calbox">
-<h2 style="color:#FF7F00">Tamil Calendar - Free To View - I And Others - Same For All To View</h2>
-<p id="tamilToday" style="font-size:20px;font-weight:bold;background:#FFD700;padding:10px;border-radius:10px;text-align:center"></p>
-<p id="tamilDetails" style="text-align:center;font-weight:bold"></p>
-<input type="date" id="pickDate" onchange="showTamilDate()" style="width:80%">
-<p id="pickedTamil" style="font-weight:bold;text-align:center;margin-top:8px"></p>
-<table>
-<tr><th>Tamil Month</th><th>English Dates</th><th>Festival</th></tr>
-<tr><td>Karthigai - கார்த்திகை</td><td>Nov 17 - Dec 16, 2026</td><td>Karthigai Deepam - Dec 3, 2026</td></tr>
-<tr><td>Margazhi - மார்கழி</td><td>Dec 17, 2026 - Jan 13, 2027</td><td>Thiruvathirai - Jan 1, 2027</td></tr>
-<tr><td>Thai - தை</td><td>Jan 14 - Feb 12, 2027</td><td>Thai Pongal - Jan 14, 2027</td></tr>
-</table>
+<div id="mainGrid" class="card">
+<h2>90 Tools - Click Any Tool - Opens In New Window</h2>
+<div id="toolGrid" class="grid"></div>
 </div>
-
-<div class="card songbox">
-<h2 style="color:#FF0000">Tamil Devotional Songs - Free To Listen - I And Others - Same For All To Listen</h2>
-<div class="grid" id="songGrid"></div>
-</div>
-
-<div class="card" style="border-color:#0000FF"><h2 style="color:#0000FF">VIBGYOR - All 84 Tools - I And Others</h2>
-<p style="font-weight:bold;color:#0000FF">I: Totally Free - No Timer - No Pay Must | OTHERS: 15 Min Trial Free - After Trial Pay Must - Same For All Others - 10% Discount For All Others</p>
-<div class="vibgyor"><div class="v">Violet</div><div class="i">I Indigo</div><div class="b">B Blue</div><div class="g">G Green</div><div class="y">Y Yellow</div><div class="o">O Orange</div><div class="r">R Red</div></div>
-<div class="grid" id="toolGrid"></div></div>
-<div class="card" id="quizBox" style="display:none;border-color:#FF7F00">
-<h2 id="quizTitle"></h2><p id="aiLabel" style="color:#8B00FF;font-weight:bold"></p>
-<p id="score"></p><p class="q" id="question"></p><div id="options"></div><p id="result"></p>
-<button id="nextBtn" onclick="nextQ()">Next - New Question</button>
-<button id="ownerNextBtn" onclick="nextQOwner()" style="display:none;background:#000;color:#FFD700">I - Owner Only - Totally Free</button>
-<button id="trialNextBtn" onclick="nextQTrial()" style="display:none;background:#00A651;color:#fff">OTHERS - Trial - Free - Next - 15 Min Only</button>
-<div id="trialEndedBox" style="display:none;text-align:center;margin-top:14px;border:3px solid #FF0000;border-radius:12px;padding:14px;background:#FFE6E6">
-<p style="font-size:22px;font-weight:bold;color:#FF0000">PAY MUST - OTHERS - 15 Min Trial Finished</p>
-<p id="trialEndedPrice" style="font-weight:bold;font-size:18px;color:#16a34a"></p>
-<button class="paymust" onclick="payNowQR()">PAY MUST - OTHERS - PAY NOW</button>
-</div>
-<div id="payMoreBox" style="display:none;text-align:center;margin-top:14px;border:3px solid #FF7F00;border-radius:12px;padding:14px;background:#FFF7ED">
-<p style="font-size:20px;font-weight:bold;color:#FF0000">PAY MUST - OTHERS - You Finished Trial</p>
-<p id="payMorePrice" style="font-weight:bold;font-size:18px;color:#16a34a"></p>
-<button class="trial" style="font-size:16px;padding:12px 20px" onclick="startTrial()">OTHERS - Start 15 Min Trial</button>
-<button class="paymust" onclick="payNowQR()">PAY MUST - OTHERS - PAY NOW</button>
-</div>
-<div id="ownerContinueBox" style="display:none;text-align:center;margin-top:14px;border:3px solid #FFD700;border-radius:12px;padding:14px;background:#000;color:#FFD700">
-<p style="font-size:20px;font-weight:bold" id="ownerContinueText">Welcome I - Owner Maheswari - Totally Free</p>
-<button style="background:#FFD700;color:#000;font-size:18px;padding:14px 22px" onclick="nextQOwner()">I - Continue Free - Owner Only</button>
-</div>
-</div>
-<div class="card" style="border-color:#FF0000">
-<h2 style="color:#FF0000">Payment - I And Others - I: Free - Others: Pay Must - Same For All Others</h2>
-<p id="payBox"></p>
-<p id="payBoxDiscount" style="font-weight:bold;color:#16a34a;font-size:18px"></p>
-<p style="font-weight:bold;color:#FF0000;font-size:18px">OTHERS PAY MUST - Same For All Others - I Does Not Pay - Others Must Pay After Trial</p>
-<button class="paymust" onclick="payNowQR()">PAY MUST - OTHERS - PAY NOW - OPEN IN NEW WINDOW</button>
-<div class="paybox" id="qrBox" style="display:none">
-<p><b id="qrTitle">PAY MUST - OTHERS - Pay Now - Opens In New Window</b></p>
-<p id="qrPrice" style="font-weight:bold;font-size:18px"></p>
-<p id="qrDiscountNote" style="font-weight:bold;color:#16a34a"></p>
-<a href="https://razorpay.me/@maheswarisallinone" target="_blank" rel="noopener"><button id="mainPayBtn" style="background:#4285F4;font-size:18px;padding:14px 24px" type="button">PAY MUST - OTHERS - Pay - Open In New Window</button></a>
-<p style="margin-top:10px">OR Scan QR Code - OTHERS - Pay Must</p>
-<a href="https://razorpay.me/@maheswarisallinone" target="_blank" rel="noopener"><img id="qrImg" src="" style="width:240px;height:240px;border:3px solid #FF0000"></a>
-<p>Payment Link: <a href="https://razorpay.me/@maheswarisallinone" target="_blank" rel="noopener">razorpay.me/@maheswarisallinone - OTHERS Pay Must</a></p>
-<p>QR ID: qr_TzYJyouNHbFElG</p>
-<p>OTHERS After Payment - Take Screenshot - Send on WhatsApp - I Will Confirm - OTHERS Pay Must</p>
-</div>
-<p id="payStatus" style="font-weight:bold;color:#00A651"></p>
-<p id="paidStatus" style="font-weight:bold;color:#16a34a;font-size:18px"></p>
-<button style="background:#16a34a" onclick="markAsPaid()">OTHERS - I Have Paid - Click Here After Payment - I Will Confirm</button>
-</div>
+<div id="singleTool" class="card" style="display:none">
+<h2 id="singleTitle"></h2>
+<p id="qText"></p>
+<div id="qOpts"></div>
+<button onclick="window.close()">CLOSE - Back To Main Page</button>
 </div>
 <script>
-var RAZORPAY_LINK = "https://razorpay.me/@maheswarisallinone";
-var isOwner = false;
-var isPaid = false;
-var OWNER_CODE = "MAHESWARI";
-var trialActive = false; var trialEnded = false; var trialSecondsLeft = 15*60; var trialTimerId = null; var trialStartedOnce = false;
-function formatTime(sec){ var m=Math.floor(sec/60); var s=sec%60; if(m<10) m="0"+m; if(s<10) s="0"+s; return m+":"+s; }
-function startTrial(){
-  if(isOwner){ alert("I - You Are Owner - Totally Free - No Trial Needed - I Does Not Need Trial"); return; }
-  if(isPaid){ alert("Others - You Already Paid - Pay Must Done"); return; }
-  if(trialStartedOnce && trialEnded){ alert("Others - Trial Already Finished - PAY MUST - Pay Now - Same For All Others"); showPayMust(); return; }
-  if(trialActive){ alert("Others - Trial Already Running - " + formatTime(trialSecondsLeft)); return; }
-  trialStartedOnce=true; trialActive=true; trialSecondsLeft=15*60;
-  document.getElementById("trialStatus").innerText="Others - Trial Running - 15 Min Free - After Trial PAY MUST - Same For All Others";
-  document.getElementById("startTrialBtn").innerText="Others - Trial Running - " + formatTime(trialSecondsLeft) + " Left";
-  document.getElementById("startTrialBtn").disabled=true;
-  alert("Others - 15 Min Trial Started - After Trial PAY MUST - Same For All Others");
-  clearInterval(trialTimerId);
-  trialTimerId=setInterval(function(){ trialSecondsLeft--; document.getElementById("trialTimer").innerText=formatTime(trialSecondsLeft)+" Left - Others Trial Free - After Trial PAY MUST"; document.getElementById("startTrialBtn").innerText="Others - Trial Running - " + formatTime(trialSecondsLeft) + " Left"; if(trialSecondsLeft<=0){ endTrial(); } },1000);
+var PRICES={India:999,Korea:30000,USA:12,UK:10,UAE:45};
+var CURRENCY={India:"Rs.",Korea:"₩",USA:"$",UK:"£",UAE:"AED "};
+var isOwner = localStorage.getItem("ownerMode")==="yes" || localStorage.getItem("unlimitedFree")==="yes" || localStorage.getItem("paidUnlock")==="yes";
+var params=new URLSearchParams(location.search);
+if(params.get("owner")==="1"){ isOwner=true; localStorage.setItem("ownerMode","yes"); }
+if(localStorage.getItem("unlimitedFree")==="yes"){ isOwner=true; }
+function updatePrice(){
+  var c=document.getElementById("countrySelect").value;
+  var base=PRICES[c], cur=CURRENCY[c];
+  document.getElementById("priceText").innerHTML="<b>Price: "+cur+base+" - With RAINBOW10: "+cur+Math.round(base*0.9)+"</b>";
 }
-function endTrial(){
-  clearInterval(trialTimerId); trialActive=false; trialEnded=true; trialSecondsLeft=0;
-  document.getElementById("trialTimer").innerText="00:00 - Others Trial Finished - PAY MUST";
-  document.getElementById("trialStatus").innerText="Others - Trial Finished - PAY MUST - Pay Now - Tools Locked - Same For All Others";
-  document.getElementById("startTrialBtn").innerText="Others - Trial Finished - PAY MUST";
-  showPayMust();
-  alert("Others - 15 Min Trial Finished - PAY MUST - Pay Now - Same For All Others");
-}
-function showPayMust(){
-  document.getElementById("payMustBox").style.display="block";
-  var msg = "Others - Pay Must " + PRICE_SYMBOL[currentCountry] + getDiscountedPrice(currentCountry) + " - With RAINBOW10 - 10% Off - Same For All Others - Was " + PRICE_SYMBOL[currentCountry] + PRICE_NUM[currentCountry];
-  document.getElementById("payMustPrice").innerText = "PAY MUST - Others - " + msg;
-  document.getElementById("trialEndedBox").style.display="block";
-  document.getElementById("trialEndedPrice").innerText = "PAY MUST - Others - " + msg;
-  document.getElementById("payMustBox").scrollIntoView();
-}
-function markAsPaid(){
-  if(isOwner){ alert("I - No Pay Must"); return; }
-  var ok = confirm("Others - Did You Pay? Click OK If You Paid - I Will Confirm On WhatsApp - Send Screenshot Now");
-  if(ok){
-    document.getElementById("paidStatus").innerText = "Others - Payment Marked - Send Screenshot On WhatsApp To I - I Will Confirm";
-    alert("Others - Payment Marked - Send Screenshot To I Now - I Will Confirm");
-    window.open("https://wa.me/?text=" + encodeURIComponent("Hi, I Am Others - I Paid For Hi Rainbow - Country: " + currentCountry + " - Please Confirm - Pay Must Done"), "_blank", "noopener,noreferrer");
+updatePrice();
+function checkOwner(){
+  var v=document.getElementById("ownerInput").value.trim().toUpperCase();
+  if(v==="OWNER123" || v==="VIBGYOR100"){
+    localStorage.setItem("ownerMode","yes"); isOwner=true;
+    document.getElementById("ownerMsg").innerText="✅ Owner Mode ON - Test Anytime - Saved";
+    location.reload(); return;
   }
+  alert("Wrong Code");
 }
-function resetTrialForTest(){ clearInterval(trialTimerId); trialActive=false; trialEnded=false; trialStartedOnce=false; trialSecondsLeft=15*60; isPaid=false; document.getElementById("payMustBox").style.display="none"; document.getElementById("trialTimer").innerText="15:00 - Trial Not Started - Others Only"; document.getElementById("trialStatus").innerText="Others - Trial Reset For Testing"; document.getElementById("startTrialBtn").innerText="OTHERS - Start 15 Min Free Trial"; document.getElementById("startTrialBtn").disabled=false; document.getElementById("trialEndedBox").style.display="none"; document.getElementById("paidStatus").innerText=""; alert("Trial Reset - For Testing Only"); }
-function nextQTrial(){ document.getElementById("trialEndedBox").style.display="none"; document.getElementById("payMustBox").style.display="none"; qCount=0; nextQ(); }
-var DISCOUNTS = {"RAINBOW10":10,"VIBGYOR10":10,"HI10":10,"WELCOME10":10,"RAINBOW20":20};
-var currentDiscount = 0; var currentDiscountCode = "";
-var PRICE_NUM = {India:999, USA:30, UK:25, Canada:40, Australia:45, China:200, Korea:40000, Germany:28};
-var PRICE_SYMBOL = {India:"Rs.", USA:"$", UK:"£", Canada:"$ CAD ", Australia:"$ AUD ", China:"¥ CNY ", Korea:"₩ KRW ", Germany:"€"};
-function getDiscountedPrice(country){
-  var base = PRICE_NUM[country];
-  if(currentDiscount===0) return base;
-  return Math.round(base * (100 - currentDiscount) / 100 * 100) / 100;
+function logoutOwner(){
+  localStorage.removeItem("ownerMode"); localStorage.removeItem("unlimitedFree"); localStorage.removeItem("paidUnlock");
+  localStorage.setItem("trialStart", Date.now());
+  location.href=location.href.split('?')[0];
 }
-function applyDiscount(){
-  var code = document.getElementById("discountInput").value.toUpperCase().trim();
-  if(isOwner){ alert("I - You Are Free - No Discount Needed - I Does Not Need Discount"); return; }
-  if(!code){ alert("Others - Type RAINBOW10 - Same For All Others - Pay Must Still"); return; }
-  if(code==="MAHESWARI"){ alert("I - MAHESWARI Is I Code - Only I Uses It - Others Use RAINBOW10"); return; }
-  if(DISCOUNTS[code]!==undefined){
-    currentDiscount=DISCOUNTS[code]; currentDiscountCode=code;
-    var dp=getDiscountedPrice(currentCountry);
-    document.getElementById("discountStatus").innerText="Others - Discount Applied - Same For All Others - " + code + " - " + currentDiscount + "% Off - PAY MUST Still " + PRICE_SYMBOL[currentCountry]+dp;
-    document.getElementById("discountPriceInfo").innerText="Others - Discount ON - Same For All Others: " + code + " - PAY MUST " + PRICE_SYMBOL[currentCountry]+dp;
-    document.getElementById("payBoxDiscount").innerText="Others - Discount Applied - Same For All Others: "+currentDiscountCode+" - PAY MUST " + PRICE_SYMBOL[currentCountry]+dp;
-    document.getElementById("payMorePrice").innerText="Others - With "+currentDiscountCode+" - Same For All Others - PAY MUST " + PRICE_SYMBOL[currentCountry]+dp;
-    alert("Others - Discount Applied - Same For All Others - PAY MUST Still " + PRICE_SYMBOL[currentCountry]+dp);
-  } else {
-    document.getElementById("discountStatus").innerText="Others - Wrong Code - Try RAINBOW10 - Same For All Others";
-    alert("Others - Wrong Code - Try RAINBOW10 - Same For All Others");
+function unlockAll(){
+  var code=document.getElementById("unlockCode").value.trim().toUpperCase();
+  if(code==="VIBGYOR100"){
+    localStorage.setItem("unlimitedFree","yes"); localStorage.setItem("paidUnlock","yes");
+    document.getElementById("payMsg").innerText="✅ VIBGYOR100 Applied - 100% OFF - UNLIMITED - All Tools Unlocked";
+    setTimeout(function(){location.reload()},800); return;
   }
-}
-function removeDiscount(){ currentDiscount=0; currentDiscountCode=""; document.getElementById("discountStatus").innerText="Others - Discount Removed - PAY MUST Full Price"; document.getElementById("discountPriceInfo").innerText=""; document.getElementById("payBoxDiscount").innerText=""; document.getElementById("discountInput").value=""; changeCountry(); }
-function openNewWindow(){ window.open(window.location.href, "_blank", "noopener,noreferrer"); }
-function ownerLogin(){ var code=prompt("I - Owner Name - Type MAHESWARI - I Only:"); if(code && code.toUpperCase().trim()===OWNER_CODE){ isOwner=true; document.getElementById("ownerStatus").innerText="I Mode ON - Welcome I - Owner Maheswari - Totally Free - No Pay Must - Only I"; document.getElementById("logoutBtn").style.display="inline-block"; document.getElementById("payMustBox").style.display="none"; document.getElementById("trialEndedBox").style.display="none"; alert("Welcome I - Owner Maheswari - Totally Free - Only I"); } else { alert("Wrong Code - I Only - Others PAY MUST - Same For All Others"); } }
-function ownerLogout(){ isOwner=false; document.getElementById("ownerStatus").innerText="Not In I Mode - You Are In Others Mode Now - Others Must Pay After Trial"; document.getElementById("logoutBtn").style.display="none"; alert("Exit I Mode - Now You Are In Others Mode"); }
-function nextQOwner(){ document.getElementById("ownerContinueBox").style.display="none"; document.getElementById("trialEndedBox").style.display="none"; document.getElementById("payMustBox").style.display="none"; document.getElementById("nextBtn").style.display="none"; document.getElementById("trialNextBtn").style.display="none"; document.getElementById("ownerNextBtn").style.display="inline-block"; qCount=0; nextQ(); }
-function getTamilMonth(d){ var m=d.getMonth(), day=d.getDate(); if((m===10 && day>=17)||(m===11 && day<=16)) return {month:"Karthigai - கார்த்திகை", year:"Visuvavasu", note:"Karthigai Deepam - Dec 3, 2026"}; if((m===11 && day>=17)||(m===0 && day<=13)) return {month:"Margazhi - மார்கழி", year:"Visuvavasu", note:"Thiruvathirai - Jan 1, 2027"}; if((m===0 && day>=14)||(m===1 && day<=12)) return {month:"Thai - தை", year:"Parabava", note:"Thai Pongal - Jan 14, 2027"}; return {month:"Tamil Month - Check Calendar", year:"Visuvavasu", note:"See Calendar"}; }
-function showTamilToday(){ var today=new Date(); var t=getTamilMonth(today); var days=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]; document.getElementById("tamilToday").innerText="Today: " + days[today.getDay()] + ", " + today.toDateString() + " | Tamil Month: " + t.month; document.getElementById("tamilDetails").innerText="Tamil Year: " + t.year + " | " + t.note; document.getElementById("pickDate").value=today.toISOString().slice(0,10); }
-function showTamilDate(){ var v=document.getElementById("pickDate").value; if(!v) return; var d=new Date(v+"T00:00:00"); var t=getTamilMonth(d); document.getElementById("pickedTamil").innerText="Date: " + d.toDateString() + " | Tamil Month: " + t.month + " | Tamil Year: " + t.year + " | " + t.note; }
-showTamilToday();
-var prices={India:{p:"Rs.999",pay:"GPay - Others Pay Must",hint:"Open GPay App - Scan - Others Pay Must"},USA:{p:"$30",pay:"Only Razorpay - Others Pay Must",hint:"Open Razorpay - Others Pay Must $30"},UK:{p:"£25",pay:"Only Razorpay - Others Pay Must",hint:"Open Razorpay - Others Pay Must £25"},Canada:{p:"$40 CAD",pay:"Only Razorpay - Others Pay Must",hint:"Open Razorpay - Others Pay Must"},Australia:{p:"$45 AUD",pay:"Only Razorpay - Others Pay Must",hint:"Open Razorpay - Others Pay Must"},China:{p:"¥200 CNY",pay:"Only Razorpay - Others Pay Must",hint:"Open Razorpay - Others Pay Must"},Korea:{p:"₩40000 KRW",pay:"Only Razorpay - Others Pay Must",hint:"Open Razorpay - Others Pay Must"},Germany:{p:"€28 EUR",pay:"Only Razorpay - Others Pay Must",hint:"Open Razorpay - Others Pay Must €28"}};
-var currentCountry="India";
-function changeCountry(){
-  var c=document.getElementById("country").value; currentCountry=c;
-  document.getElementById("countryInfo").innerText="Country: "+c+" | Language: English Only | I: Free - Others: Pay Must After Trial - Same For All Others";
-  document.getElementById("priceInfo").innerText="Price: "+prices[c].p+" - I: Free - Others: Pay Must - Same For All Others - RAINBOW10 - 10% Off For Others";
-  document.getElementById("payInfo").innerText="Payment: "+prices[c].pay;
-  if(currentDiscount>0){
-    var dp=getDiscountedPrice(c);
-    document.getElementById("payBox").innerText="Country: "+c+" | Full Price: "+prices[c].p+" | Others Discount: "+currentDiscountCode+" - "+currentDiscount+"% Off - Same For All Others | OTHERS PAY MUST " + PRICE_SYMBOL[c]+dp + " | I: Free";
-    document.getElementById("discountPriceInfo").innerText="Others - Discount ON - Same For All Others: "+currentDiscountCode+" - PAY MUST " + PRICE_SYMBOL[c]+dp;
-    document.getElementById("payBoxDiscount").innerText="Others - Discount Applied - Same For All Others: "+currentDiscountCode+" - PAY MUST " + PRICE_SYMBOL[c]+dp;
-    document.getElementById("payMorePrice").innerText="Others - With "+currentDiscountCode+" - Same For All Others - PAY MUST " + PRICE_SYMBOL[c]+dp;
-  } else {
-    document.getElementById("payBox").innerText="Country: "+c+" | Price: "+prices[c].p+" | I: Free - Others: Pay Must - Same For All Others - Use RAINBOW10 - 10% Off For Others";
-    document.getElementById("payBoxDiscount").innerText="Others - Use RAINBOW10 - 10% Off For All Others - PAY MUST - Same For All Others";
-    document.getElementById("payMorePrice").innerText="Others - Full Price: "+prices[c].p+" | PAY MUST - Same For All Others - Use RAINBOW10 - 10% Off For Others";
-    document.getElementById("discountPriceInfo").innerText="";
+  if(code==="RAINBOW10"){
+    var c=document.getElementById("countrySelect").value;
+    document.getElementById("payMsg").innerText="✅ RAINBOW10 Applied - 10% OFF - Pay: "+CURRENCY[c]+Math.round(PRICES[c]*0.9)+" - Pay First, Then Enter Paid Code";
+    return;
   }
-  document.getElementById("qrBox").style.display="none"; document.getElementById("payStatus").innerText="";
-}
-changeCountry();
-function payNowQR(){
-  if(isOwner){ alert("I - Totally Free - No Pay Must For I"); return; }
-  var c=currentCountry;
-  document.getElementById("qrBox").style.display="block";
-  var dp=getDiscountedPrice(c);
-  if(currentDiscount>0){ document.getElementById("qrPrice").innerText="OTHERS PAY MUST " + PRICE_SYMBOL[c]+dp+" - "+c+" - Discount "+currentDiscountCode+" - Same For All Others - Was "+PRICE_SYMBOL[c]+PRICE_NUM[c]; document.getElementById("qrDiscountNote").innerText="Others - Discount Applied - Same For All Others: "+currentDiscountCode+" - PAY MUST " + PRICE_SYMBOL[c]+dp; }
-  else { document.getElementById("qrPrice").innerText="OTHERS PAY MUST "+prices[c].p+" - "+c+" - Use RAINBOW10 - 10% Off For All Others - Still Pay Must"; document.getElementById("qrDiscountNote").innerText="Others - Tip: Use RAINBOW10 - 10% Off For All Others - PAY MUST"; }
-  document.getElementById("qrTitle").innerText="PAY MUST - OTHERS - Pay - Opens In New Window - Same For All Others";
-  document.getElementById("mainPayBtn").innerText="PAY MUST - OTHERS - Pay - Open In New Window - Same For All Others";
-  document.getElementById("qrHint").innerText=prices[c].hint;
-  document.getElementById("qrImg").src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data="+encodeURIComponent(RAZORPAY_LINK);
-  document.getElementById("payStatus").innerText="PAY MUST Working! I: Free - Others: Pay Must - Same For All Others - RAINBOW10 - 10% Off For Others";
-  window.open(RAZORPAY_LINK, "_blank", "noopener,noreferrer");
-  alert("PAY MUST - Others - Pay Opened In New Window! Same For All Others - " + c + " - PAY MUST " + PRICE_SYMBOL[c]+dp);
-}
-var SONGS=[
-{name:"Murugan - Kanda Shasti Kavasam", search:"Kanda Shasti Kavasam Tamil"},
-{name:"Amman - Amman Songs Tamil", search:"Tamil Amman devotional songs"},
-{name:"Shiva - Thiruvasakam", search:"Thiruvasakam Tamil devotional"},
-{name:"Perumal - Govinda Govinda", search:"Govinda Govinda Tamil Perumal song"},
-{name:"Vinayagar - Pillaiyar Songs", search:"Vinayagar Tamil devotional songs"},
-{name:"Ayyappan - Harivarasanam", search:"Harivarasanam Ayyappan Tamil"}
-];
-var songGrid=document.getElementById("songGrid");
-SONGS.forEach(function(s){ var b=document.createElement("button"); b.className="song"; b.innerText="▶ " + s.name + " - Open In New Window"; b.onclick=function(){ window.open("https://www.youtube.com/results?search_query=" + encodeURIComponent(s.search), "_blank", "noopener,noreferrer"); }; songGrid.appendChild(b); });
-var TOOLS=[
-{id:1,name:"Maths Race - Violet",cat:"math",prompt:"Best Maths Tool"},
-{id:2,name:"Addition - Violet",cat:"math",prompt:"Best Maths Tool"},
-{id:3,name:"Subtraction - Indigo",cat:"math",prompt:"Best Maths Tool"},
-{id:4,name:"Multiplication - Indigo",cat:"math",prompt:"Best Maths Tool"},
-{id:5,name:"Division - Blue",cat:"math",prompt:"Best Maths Tool"},
-{id:6,name:"Counting - Blue",cat:"math",prompt:"Best Maths Tool"},
-{id:7,name:"Number Line - Green",cat:"math",prompt:"Best Maths Tool"},
-{id:8,name:"Shapes Math - Green",cat:"math",prompt:"Best Maths Tool"},
-{id:9,name:"Money Math - Yellow",cat:"math",prompt:"Best Maths Tool"},
-{id:10,name:"Time Math - Yellow",cat:"math",prompt:"Best Maths Tool"},
-{id:11,name:"Tables - Orange",cat:"math",prompt:"Best Maths Tool"},
-{id:12,name:"Puzzle Math - Red",cat:"math",prompt:"Best Maths Tool"},
-{id:13,name:"Science Quiz - Violet",cat:"science",prompt:"Best Science Tool"},
-{id:14,name:"Plants - Green",cat:"science",prompt:"Best Science Tool"},
-{id:15,name:"Animals - Orange",cat:"science",prompt:"Best Science Tool"},
-{id:16,name:"Water - Blue",cat:"science",prompt:"Best Science Tool"},
-{id:17,name:"Sun Moon - Yellow",cat:"science",prompt:"Best Science Tool"},
-{id:18,name:"Body Parts - Red",cat:"science",prompt:"Best Science Tool"},
-{id:19,name:"Food Science - Orange",cat:"science",prompt:"Best Science Tool"},
-{id:20,name:"Weather - Blue",cat:"science",prompt:"Best Science Tool"},
-{id:21,name:"Earth - Green",cat:"science",prompt:"Best Science Tool"},
-{id:22,name:"Light - Yellow",cat:"science",prompt:"Best Science Tool"},
-{id:23,name:"Sound - Violet",cat:"science",prompt:"Best Science Tool"},
-{id:24,name:"Living Non-Living - Green",cat:"science",prompt:"Best Science Tool"},
-{id:25,name:"Spelling Bee - Yellow",cat:"spelling",prompt:"Best English Tool"},
-{id:26,name:"Reading - Indigo",cat:"english",prompt:"Best English Tool"},
-{id:27,name:"Writing - Blue",cat:"english",prompt:"Best English Tool"},
-{id:28,name:"Words - Violet",cat:"english",prompt:"Best English Tool"},
-{id:29,name:"Sentences - Green",cat:"english",prompt:"Best English Tool"},
-{id:30,name:"Grammar - Yellow",cat:"english",prompt:"Best English Tool"},
-{id:31,name:"Rhyming - Orange",cat:"english",prompt:"Best English Tool"},
-{id:32,name:"Phonics - Red",cat:"english",prompt:"Best English Tool"},
-{id:33,name:"Story Time - Violet",cat:"english",prompt:"Best English Tool"},
-{id:34,name:"Vocabulary - Indigo",cat:"english",prompt:"Best English Tool"},
-{id:35,name:"Opposites - Blue",cat:"english",prompt:"Best English Tool"},
-{id:36,name:"Alphabet - Green",cat:"english",prompt:"Best English Tool"},
-{id:37,name:"Drawing - Violet",cat:"art",prompt:"Best Art Tool"},
-{id:38,name:"Coloring - Red",cat:"art",prompt:"Best Art Tool"},
-{id:39,name:"Shapes Art - Blue",cat:"art",prompt:"Best Art Tool"},
-{id:40,name:"Music - Indigo",cat:"art",prompt:"Best Art Tool"},
-{id:41,name:"Dance Move - Orange",cat:"art",prompt:"Best Art Tool"},
-{id:42,name:"Craft - Yellow",cat:"art",prompt:"Best Art Tool"},
-{id:43,name:"Memory Game - Violet",cat:"brain",prompt:"Best Brain Tool"},
-{id:44,name:"Puzzle - Indigo",cat:"brain",prompt:"Best Brain Tool"},
-{id:45,name:"Maze - Blue",cat:"brain",prompt:"Best Brain Tool"},
-{id:46,name:"Odd One Out - Green",cat:"brain",prompt:"Best Brain Tool"},
-{id:47,name:"Find Difference - Yellow",cat:"brain",prompt:"Best Brain Tool"},
-{id:48,name:"Pattern - Orange",cat:"brain",prompt:"Best Brain Tool"},
-{id:49,name:"Good Habits - Green",cat:"gk",prompt:"Best GK Tool"},
-{id:50,name:"Safety - Red",cat:"gk",prompt:"Best GK Tool"},
-{id:51,name:"Countries - Blue",cat:"gk",prompt:"Best GK Tool"},
-{id:52,name:"Flags - Violet",cat:"gk",prompt:"Best GK Tool"},
-{id:53,name:"Transport - Orange",cat:"gk",prompt:"Best GK Tool"},
-{id:54,name:"Jobs - Indigo",cat:"gk",prompt:"Best GK Tool"},
-{id:55,name:"Festivals - Yellow",cat:"gk",prompt:"Best GK Tool"},
-{id:56,name:"Sports - Green",cat:"gk",prompt:"Best GK Tool"},
-{id:57,name:"Fruits - Red",cat:"gk",prompt:"Best GK Tool"},
-{id:58,name:"Vegetables - Green",cat:"gk",prompt:"Best GK Tool"},
-{id:59,name:"Colours - VIBGYOR",cat:"gk",prompt:"Best GK Tool"},
-{id:60,name:"Days Months - Blue",cat:"gk",prompt:"Best GK Tool"},
-{id:61,name:"Brain Quiz - Violet",cat:"brain",prompt:"Best Brain Tool"},
-{id:62,name:"Logic - Indigo",cat:"brain",prompt:"Best Brain Tool"},
-{id:63,name:"Memory Words - Blue",cat:"brain",prompt:"Best Brain Tool"},
-{id:64,name:"Sequence - Green",cat:"brain",prompt:"Best Brain Tool"},
-{id:65,name:"Coding Kids - Yellow",cat:"brain",prompt:"Best Brain Tool"},
-{id:66,name:"Sudoku Kids - Orange",cat:"brain",prompt:"Best Brain Tool"},
-{id:67,name:"Word Search - Red",cat:"english",prompt:"Best English Tool"},
-{id:68,name:"Crossword Kids - Violet",cat:"english",prompt:"Best English Tool"},
-{id:69,name:"Riddle - Indigo",cat:"brain",prompt:"Best Brain Tool"},
-{id:70,name:"Quick Think - Blue",cat:"brain",prompt:"Best Brain Tool"},
-{id:71,name:"Focus Game - Green",cat:"brain",prompt:"Best Brain Tool"},
-{id:72,name:"Speed Test - Yellow",cat:"brain",prompt:"Best Brain Tool"},
-{id:73,name:"Daily Test - Orange",cat:"practice",prompt:"Best Practice Tool"},
-{id:74,name:"Homework Help - Red",cat:"practice",prompt:"Best Practice Tool"},
-{id:75,name:"Mock Test - Violet",cat:"practice",prompt:"Best Practice Tool"},
-{id:76,name:"Revision - Indigo",cat:"practice",prompt:"Best Practice Tool"},
-{id:77,name:"Parent Report - Blue",cat:"practice",prompt:"Best Practice Tool"},
-{id:78,name:"Certificate - Green",cat:"practice",prompt:"Best Practice Tool"},
-{id:79,name:"Leaderboard - Yellow",cat:"practice",prompt:"Best Practice Tool"},
-{id:80,name:"Sticker Reward - Orange",cat:"practice",prompt:"Best Practice Tool"},
-{id:81,name:"Speaking - Red",cat:"english",prompt:"Best English Tool"},
-{id:82,name:"Listening - Violet",cat:"english",prompt:"Best English Tool"},
-{id:83,name:"Handwriting - Indigo",cat:"english",prompt:"Best English Tool"},
-{id:84,name:"Final Exam - VIBGYOR",cat:"practice",prompt:"Best Practice Tool"}
-];
-var BANKS={
-math:[{q:"5 + 7 = ?",a:["11","12","13","10"],c:1},{q:"10 - 3 = ?",a:["7","8","6","9"],c:0},{q:"2 x 4 = ?",a:["6","7","8","9"],c:2}],
-science:[{q:"What do plants need?",a:["Sunlight and Water","Shoes","Phone","Math Book"],c:0},{q:"Which is living?",a:["Rock","Dog","Chair","Table"],c:1}],
-spelling:[{q:"Spell CAT",a:["C-A-T","K-A-T","C-A-T-T","S-A-T"],c:0},{q:"Spell APPLE",a:["A-P-L-E","A-P-P-L-E","A-P-L","APPLEE"],c:1}],
-english:[{q:"Read: Cat is big. What is big?",a:["Cat","Dog","Fish","Bird"],c:0},{q:"Opposite of Big?",a:["Small","Big","Large","Huge"],c:0}],
-art:[{q:"Draw Sun. What colour is Sun?",a:["Yellow","Blue","Green","Black"],c:0}],
-brain:[{q:"Find Pattern: 2,4,6, What next?",a:["8","9","7","5"],c:0}],
-gk:[{q:"VIBGYOR - What is V?",a:["Violet","Blue","Red","Green"],c:0},{q:"VIBGYOR - What is R?",a:["Red","Rose","Rain","Rock"],c:0}],
-practice:[{q:"Daily Test: 2 + 2 = ?",a:["3","4","5","6"],c:1}]
-};
-var used=[]; var currentTool=null, currentQ=null, currentScore=0, qCount=0;
-var grid=document.getElementById("toolGrid");
-var vibColors=["#8B00FF","#4B0082","#0000FF","#00A651","#FFD700","#FF7F00","#FF0000"];
-TOOLS.forEach(function(t,i){var b=document.createElement("button"); b.innerText=t.id+". "+t.name; b.style.background=vibColors[i%7]; if(i%7===4){b.style.color="#000";} b.onclick=function(){startTool(t);}; grid.appendChild(b);});
-function aiPick(cat, toolName){ var bank=BANKS[cat]||BANKS.practice; var fresh=bank.filter(function(item){return used.indexOf(toolName+":"+item.q)===-1;}); if(fresh.length===0){fresh=bank;} var pick=fresh[Math.floor(Math.random()*fresh.length)]; var q={q:toolName+": "+pick.q, a:pick.a.slice(), c:pick.c}; used.push(toolName+":"+pick.q); return q; }
-function startTool(t){
-  if(!isOwner && trialEnded){ alert("OTHERS - PAY MUST - Trial Finished - Pay Now - Same For All Others - Tools Locked"); showPayMust(); return; }
-  if(!isOwner && !trialActive && !isPaid){ alert("OTHERS - Start 15 Min Trial First - Same For All Others - After Trial PAY MUST"); document.getElementById("trialBox").scrollIntoView(); return; }
-  currentTool=t; currentScore=0; qCount=0; used=[];
-  document.getElementById("quizBox").style.display="block"; document.getElementById("payMoreBox").style.display="none"; document.getElementById("ownerContinueBox").style.display="none"; document.getElementById("trialEndedBox").style.display="none"; document.getElementById("payMustBox").style.display="none";
-  if(isOwner){ document.getElementById("nextBtn").style.display="none"; document.getElementById("trialNextBtn").style.display="none"; document.getElementById("ownerNextBtn").style.display="inline-block"; document.getElementById("aiLabel").innerText="I - Totally Free - Owner Maheswari - No Pay Must"; }
-  else if(trialActive){ document.getElementById("nextBtn").style.display="none"; document.getElementById("ownerNextBtn").style.display="none"; document.getElementById("trialNextBtn").style.display="inline-block"; document.getElementById("aiLabel").innerText="OTHERS - Trial Free - " + formatTime(trialSecondsLeft) + " Left - After Trial PAY MUST - Same For All Others"; }
-  else if(isPaid){ document.getElementById("nextBtn").style.display="inline-block"; document.getElementById("aiLabel").innerText="OTHERS - Paid User - Pay Must Done - Same For All Others - Best Tool: "+t.prompt; }
-  document.getElementById("quizTitle").innerText=t.id+". "+t.name + (isOwner ? " - I - Owner Free - No Pay Must" : " - OTHERS - PAY MUST After Trial - Same For All Others");
-  nextQ();
-}
-function nextQ(){
-  if(!isOwner && trialEnded && !isPaid){ document.getElementById("question").innerText="OTHERS - PAY MUST - Trial Finished - Pay Now - Same For All Others"; document.getElementById("options").innerHTML=""; showPayMust(); return; }
-  if(qCount>=5){
-    if(isOwner){ document.getElementById("question").innerText="I - 5 Done - Continue Free - No Pay Must"; document.getElementById("options").innerHTML=""; document.getElementById("score").innerText="I Score: "+currentScore+" / 5 - No Pay Must"; document.getElementById("ownerContinueBox").style.display="block"; return; }
-    if(trialActive){ document.getElementById("question").innerText="OTHERS - Trial - 5 Done - Continue Free - " + formatTime(trialSecondsLeft) + " Left - After Trial PAY MUST"; document.getElementById("options").innerHTML=""; document.getElementById("score").innerText="OTHERS Trial Score: "+currentScore+" / 5"; document.getElementById("trialNextBtn").style.display="inline-block"; return; }
-    if(isPaid){ document.getElementById("question").innerText="OTHERS - Paid - 5 Done - Continue - Pay Must Done - Same For All Others"; document.getElementById("options").innerHTML=""; document.getElementById("nextBtn").style.display="inline-block"; return; }
-    document.getElementById("question").innerText="OTHERS - PAY MUST - Finished - Same For All Others"; document.getElementById("options").innerHTML=""; document.getElementById("payMoreBox").style.display="block"; return;
+  if(code==="PAID2026"){
+    localStorage.setItem("paidUnlock","yes");
+    document.getElementById("payMsg").innerText="✅ Paid Code Accepted - Unlocked";
+    setTimeout(function(){location.reload()},800); return;
   }
-  currentQ=aiPick(currentTool.cat, currentTool.name); qCount++;
-  document.getElementById("score").innerText="Question "+qCount+" of 5 | Score: "+currentScore;
-  document.getElementById("question").innerText=currentQ.q;
-  document.getElementById("result").innerText="";
-  var html=""; for(var i=0;i<currentQ.a.length;i++){html+='<button class="opt" onclick="checkAns('+i+')">'+currentQ.a[i]+'</button>';}
-  document.getElementById("options").innerHTML=html;
+  alert("Wrong Code. Pay First, Fill Survey, Then Enter Code We Send You.");
 }
-function checkAns(i){ if(i===currentQ.c){currentScore++;document.getElementById("result").innerText="Correct! Good Job!";} else{document.getElementById("result").innerText="Wrong. Correct is: "+currentQ.a[currentQ.c];} document.getElementById("score").innerText="Question "+qCount+" of 5 | Score: "+currentScore; }
+if(isOwner){
+  document.getElementById("trialTimer").innerText="OWNER - TEST ANYTIME";
+  document.getElementById("payCard").style.display="none";
+} else {
+  var start=localStorage.getItem("trialStart");
+  if(!start){ start=Date.now(); localStorage.setItem("trialStart",start); }
+  function tick(){
+    var left=900000-(Date.now()-start);
+    if(left<=0){ document.getElementById("trialTimer").innerText="TRIAL ENDED - PAY MUST"; return; }
+    var m=Math.floor(left/60000), s=Math.floor((left%60000)/1000);
+    document.getElementById("trialTimer").innerText="TRIAL: "+m+":"+(s<10?"0"+s:s);
+  }
+  setInterval(tick,1000); tick();
+}
+var TOOLS=[]; var NAMES=["Maths Race","Addition Fun","Subtraction Star","Multiplication Master","Division King","Tables Star","Fraction Fun","Decimal Star","Shape Star","Time Star","Money Star","Word Problem Star","Tamil Song Star","Tamil Calendar Star","Quiz Maker","Homework Star","Exam Timer","Notes Maker","Question Paper Star","Super Star"];
+for(var i=1;i<=84;i++){ TOOLS.push({id:i,name:NAMES[(i-1)%NAMES.length]}); }
+TOOLS.push({id:85,name:"Doodle"});
+TOOLS.push({id:86,name:"Resume Builder"});
+TOOLS.push({id:87,name:"File Size Reducer"});
+TOOLS.push({id:88,name:"File Format Converter"});
+TOOLS.push({id:89,name:"Programming Learning"});
+TOOLS.push({id:90,name:"PDF To Quiz"});
+var COLORS=["#8e44ad","#e74c3c","#f39c12","#27ae60","#2980b9","#e91e63","#00bcd4"];
+var toolId=params.get("tool");
+if(toolId){ showSingleTool(parseInt(toolId)); } else { showGrid(); }
+function showGrid(){
+  var grid=document.getElementById("toolGrid"); grid.innerHTML="";
+  TOOLS.forEach(function(t,idx){
+    var b=document.createElement("button");
+    b.innerText=t.id+". "+t.name+" - New Window";
+    b.style.background=COLORS[idx%COLORS.length];
+    if(idx%COLORS.length===2||idx%COLORS.length===3) b.style.color="#000";
+    b.onclick=function(){ openToolNewWindow(t); };
+    grid.appendChild(b);
+  });
+}
+function openToolNewWindow(t){
+  var base=location.href.split('?')[0];
+  var extra=isOwner?"?tool="+t.id+"&owner=1":"?tool="+t.id;
+  var win=window.open(base+extra+"&v="+Date.now(),'_blank','noopener,noreferrer');
+  if(!win){ alert("Pop-up Blocked - Allow pop-ups for this site, then click again."); }
+}
+function showSingleTool(id){
+  var t=TOOLS.find(function(x){return x.id===id});
+  if(!t) return;
+  document.getElementById("mainGrid").style.display="none";
+  document.getElementById("singleTool").style.display="block";
+  document.getElementById("singleTitle").innerText=t.id+". "+t.name+" - New Window Tool";
+  var div=document.getElementById("qOpts");
+  document.getElementById("qText").innerText="";
+  if(t.name==="Doodle"){
+    div.innerHTML='<canvas id="doodle" width="320" height="280" style="border:2px solid #000;background:#fff;touch-action:none"></canvas><br><button onclick="setColor(\'black\')">Black</button><button onclick="setColor(\'red\')">Red</button><button onclick="setColor(\'blue\')">Blue</button><button onclick="setColor(\'green\')">Green</button><button onclick="clearDoodle()">Clear</button><button onclick="saveDoodle()">Save Image</button>';
+    var c=document.getElementById("doodle"), ctx=c.getContext("2d"), drawing=false, col="black";
+    window.setColor=function(x){col=x}; window.clearDoodle=function(){ctx.clearRect(0,0,320,280)};
+    window.saveDoodle=function(){var a=document.createElement("a");a.download="doodle.png";a.href=c.toDataURL("image/png");a.click();};
+    function pos(e){var r=c.getBoundingClientRect();var x=(e.touches?e.touches[0].clientX:e.clientX)-r.left;var y=(e.touches?e.touches[0].clientY:e.clientY)-r.top;return[x,y];}
+    c.onmousedown=function(e){drawing=true;var p=pos(e);ctx.beginPath();ctx.moveTo(p[0],p[1]);};
+    c.onmousemove=function(e){if(!drawing)return;var p=pos(e);ctx.strokeStyle=col;ctx.lineWidth=3;ctx.lineTo(p[0],p[1]);ctx.stroke();};
+    c.onmouseup=function(){drawing=false};
+    c.ontouchstart=function(e){e.preventDefault();drawing=true;var p=pos(e);ctx.beginPath();ctx.moveTo(p[0],p[1]);};
+    c.ontouchmove=function(e){e.preventDefault();if(!drawing)return;var p=pos(e);ctx.strokeStyle=col;ctx.lineWidth=3;ctx.lineTo(p[0],p[1]);ctx.stroke();};
+    c.ontouchend=function(){drawing=false};
+    return;
+  }
+  if(t.name==="Resume Builder"){
+    div.innerHTML='<input id="rName" placeholder="Your Name"><br><input id="rJob" placeholder="Job - Ex: Teacher"><br><input id="rSkill" placeholder="Skills - Ex: Maths, Tamil, English"><br><input id="rExp" placeholder="Experience - Ex: 2 Years"><br><button onclick="makeResume()">Build Resume</button><div id="resumeOut" style="text-align:left;background:#f9f9f9;padding:12px;margin-top:10px"></div><button onclick="printResume()">Print / Save PDF</button>';
+    window.makeResume=function(){
+      var n=document.getElementById("rName").value||"Your Name";
+      var j=document.getElementById("rJob").value||"Job";
+      var s=document.getElementById("rSkill").value||"Skills";
+      var e=document.getElementById("rExp").value||"Experience";
+      document.getElementById("resumeOut").innerHTML="<h3>"+n+"</h3><p><b>Job:</b> "+j+"</p><p><b>Skills:</b> "+s+"</p><p><b>Experience:</b> "+e+"</p><p><b>Built With VIBGYOR Resume Builder</b></p>";
+    };
+    window.printResume=function(){window.print();};
+    return;
+  }
+  if(t.name==="File Size Reducer"){
+    div.innerHTML='<p>Upload Photo - It Will Reduce Size - No Server - Private</p><input type="file" id="sizeFile" accept="image/*"><br><select id="sizeQuality"><option value="0.9">High Quality - 90%</option><option value="0.6">Medium - 60%</option><option value="0.3">Small Size - 30%</option></select><br><button onclick="reduceSize()">Reduce Size</button><p id="sizeInfo"></p><img id="sizeImg" style="max-width:100%;margin-top:10px">';
+    window.reduceSize=function(){
+      var f=document.getElementById("sizeFile").files[0]; if(!f){alert("Select Image First");return;}
+      var q=parseFloat(document.getElementById("sizeQuality").value);
+      var reader=new FileReader();
+      reader.onload=function(e){var img=new Image();img.onload=function(){
+        var cv=document.createElement("canvas");cv.width=img.width;cv.height=img.height;cv.getContext("2d").drawImage(img,0,0);
+        var data=cv.toDataURL("image/jpeg",q);
+        document.getElementById("sizeImg").src=data;
+        document.getElementById("sizeInfo").innerText="Original: "+Math.round(f.size/1024)+" KB - Reduced: "+Math.round(data.length*0.75/1024)+" KB";
+        var a=document.createElement("a");a.href=data;a.download="reduced.jpg";a.innerText="Download Reduced Image";a.style.display="block";a.style.marginTop="10px";div.appendChild(a);
+      };img.src=e.target.result;}; reader.readAsDataURL(f);
+    };
+    return;
+  }
+  if(t.name==="File Format Converter"){
+    div.innerHTML='<p>Upload Photo - Convert PNG / JPG / WebP - No Server - Private</p><input type="file" id="convFile" accept="image/*"><br><select id="convType"><option value="image/png">Convert To PNG</option><option value="image/jpeg">Convert To JPG</option><option value="image/webp">Convert To WebP</option></select><br><button onclick="convertFile()">Convert Now</button><p id="convInfo"></p><img id="convImg" style="max-width:100%;margin-top:10px">';
+    window.convertFile=function(){
+      var f=document.getElementById("convFile").files[0]; if(!f){alert("Select Image First");return;}
+      var type=document.getElementById("convType").value;
+      var reader=new FileReader();
+      reader.onload=function(e){var img=new Image();img.onload=function(){
+        var cv=document.createElement("canvas");cv.width=img.width;cv.height=img.height;cv.getContext("2d").drawImage(img,0,0);
+        var data=cv.toDataURL(type,0.9);
+        document.getElementById("convImg").src=data;
+        var ext=type==="image/png"?"png":type==="image/jpeg"?"jpg":"webp";
+        document.getElementById("convInfo").innerText="Converted To "+ext.toUpperCase()+" - Ready To Download";
+        var a=document.createElement("a");a.href=data;a.download="converted."+ext;a.innerText="Download Converted "+ext.toUpperCase();a.style.display="block";a.style.marginTop="10px";div.appendChild(a);
+      };img.src=e.target.result;}; reader.readAsDataURL(f);
+    };
+    return;
+  }
+  if(t.name==="Programming Learning"){
+    div.innerHTML='<p>Learn Programming - Click Lesson - Try Code</p><button onclick="showLesson(\'html\')">1. HTML</button><button onclick="showLesson(\'css\')">2. CSS</button><button onclick="showLesson(\'js\')">3. JavaScript</button><button onclick="showLesson(\'python\')">4. Python</button><button onclick="showLesson(\'quiz\')">5. Quiz</button><div id="lessonBox" style="text-align:left;background:#f9f9f9;padding:12px;margin-top:10px"></div><textarea id="codeBox" style="width:95%;height:100px;padding:10px" placeholder="Type Code Here"></textarea><br><button onclick="runCode()">▶ Run Code</button><div id="codeOut" style="background:#000;color:#0f0;padding:12px;margin-top:10px;text-align:left;min-height:60px">Result Will Show Here...</div>';
+    window.showLesson=function(type){
+      var box=document.getElementById("lessonBox"); var code=document.getElementById("codeBox");
+      if(type==='html'){ box.innerHTML="<b>HTML - Website</b><br>HTML = Structure. Example: &lt;h1&gt;Hello&lt;/h1&gt;"; code.value="<h1>Hello VIBGYOR</h1>\n<p>I am learning coding!</p>"; }
+      if(type==='css'){ box.innerHTML="<b>CSS - Color</b><br>CSS = Beauty. Example: color:red"; code.value="<h1 style='color:red'>I am Red!</h1>\n<p style='color:blue'>I am Blue!</p>"; }
+      if(type==='js'){ box.innerHTML="<b>JavaScript - Calculator</b><br>JS = Brain. It does Maths."; code.value="let a=10;\nlet b=5;\nconsole.log('Sum = ' + (a+b));\nconsole.log('Product = ' + (a*b));"; }
+      if(type==='python'){ box.innerHTML="<b>Python - Easiest</b><br>Python = print() shows text. In this box use console.log"; code.value="console.log('Hello Python')"; }
+      if(type==='quiz'){ box.innerHTML="<b>Quiz - What is HTML?</b><br>A) Structure B) Color C) Brain<br><b>Answer: A</b>"; code.value="console.log(10+5);"; }
+    };
+    window.runCode=function(){
+      var c=document.getElementById("codeBox").value; var out=document.getElementById("codeOut");
+      try{
+        if(c.includes("<") && c.includes(">")){ out.style.background="#fff"; out.style.color="#000"; out.innerHTML=c; return; }
+        var logs=[]; var oldLog=console.log; console.log=function(m){logs.push(m)}; eval(c); console.log=oldLog;
+        out.style.background="#000"; out.style.color="#0f0"; out.innerText=logs.length?logs.join("\n"):"✅ Code Ran - Try console.log()";
+      }catch(e){ out.innerText="❌ Error: "+e.message; }
+    };
+    window.showLesson('html');
+    return;
+  }
+  if(t.name==="PDF To Quiz"){
+    div.innerHTML='<p>Upload PDF - Auto Quiz In 10 Sec - No Server - Private</p><input type="file" id="pdfFile" accept=".pdf"><br><button onclick="readPDF()">📄 Read PDF + Make Quiz</button><p id="pdfStatus" class="small">Select PDF First</p><div id="pdfQuiz" style="text-align:left"></div><div id="pdfScore" style="font-weight:bold;margin-top:10px"></div>';
+    if(!window.pdfjsLib){ var s=document.createElement("script"); s.src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"; document.head.appendChild(s); }
+    window.readPDF=function(){
+      var f=document.getElementById("pdfFile").files[0]; if(!f){alert("Select PDF First");return;}
+      document.getElementById("pdfStatus").innerText="Reading PDF... Please Wait...";
+      var reader=new FileReader();
+      reader.onload=function(e){
+        var data=new Uint8Array(e.target.result);
+        pdfjsLib.getDocument({data:data}).promise.then(function(pdf){
+          var promises=[];
+          for(var i=1;i<=Math.min(pdf.numPages,3);i++){
+            promises.push(pdf.getPage(i).then(function(page){ return page.getTextContent().then(function(tc){ return tc.items.map(function(it){return it.str}).join(" "); }); }));
+          }
+          Promise.all(promises).then(function(pages){ makeQuizFromText(pages.join(" ")); });
+        });
+      };
+      reader.readAsArrayBuffer(f);
+    };
+    window.makeQuizFromText=function(fullText){
+      var sentences=fullText.split(".").map(function(s){return s.trim()}).filter(function(s){return s.length>20 && s.length<150}).slice(0,5);
+      if(sentences.length===0){ document.getElementById("pdfStatus").innerText="❌ No Text Found - Try Text PDF"; return; }
+      document.getElementById("pdfStatus").innerText="✅ PDF Read - "+sentences.length+" Questions - Use NEXT Button";
+      window.currentQs=sentences.map(function(sent){
+        var words=sent.split(" ").filter(function(w){return w.length>3});
+        var hideWord=words[Math.floor(words.length/2)] || words[0];
+        var qText=sent.replace(hideWord,"_____");
+        var opts=[hideWord, words[0]||"School", words[words.length-1]||"Book", "VIBGYOR"];
+        opts.sort(function(){return Math.random()-0.5});
+        return {q:"Fill Blank From Your PDF: "+qText, ans:hideWord, opts:opts};
+      });
+      window.currentQ=0; window.score=0;
+      var pdfBox=document.getElementById("pdfQuiz");
+      function showPDFQ(){
+        var q=window.currentQs[window.currentQ];
+        document.getElementById("pdfStatus").innerText="Q"+(window.currentQ+1)+" / "+window.currentQs.length+"  |  Score: "+window.score;
+        pdfBox.innerHTML="<b>"+q.q+"</b><br>";
+        var answered=false;
+        q.opts.forEach(function(o){
+          var btn=document.createElement("button"); btn.className="qbtn"; btn.innerText=o;
+          btn.onclick=function(){
+            if(answered) return; answered=true;
+            if(o===q.ans){ window.score++; alert("✅ Correct!"); } else { alert("❌ Wrong - Correct: "+q.ans); }
+            document.getElementById("pdfNext").style.display="block";
+          };
+          pdfBox.appendChild(btn);
+        });
+        var next=document.createElement("button");
+        next.id="pdfNext"; next.innerText=(window.currentQ===window.currentQs.length-1)?"FINISH → See Score":"NEXT → Next Question";
+        next.style.cssText="background:#27ae60;width:100%;margin-top:12px;display:none";
+        next.onclick=function(){
+          window.currentQ++;
+          if(window.currentQ<window.currentQs.length){ showPDFQ(); }
+          else { pdfBox.innerHTML="🎉 Finished! Score: "+window.score+" / "+window.currentQs.length; document.getElementById("pdfStatus").innerText="Done!"; }
+        };
+        pdfBox.appendChild(next);
+      }
+      showPDFQ();
+    };
+    return;
+  }
+  var qs=[];
+  for(var q=0;q<5;q++){
+    var a=id*(q+1)+3, b=q+2;
+    if(t.name.indexOf("Subtraction")>-1){
+      var big=a+b+5;
+      qs.push({q:"What is "+big+" - "+b+" ?  Difference = ? (Minus = Take Away)",ans:String(big-b),opts:[String(big-b),String(big-b+1),String(big-b+2),String(big-b-1)]});
+    } else if(t.name.indexOf("Multiplication")>-1||t.name.indexOf("Tables")>-1){
+      qs.push({q:"What is "+a+" × "+b+" ?  Product = ?",ans:String(a*b),opts:[String(a*b),String(a*b+1),String(a*b+2),String(a*b-1)]});
+    } else if(t.name.indexOf("Division")>-1){
+      var prod=a*b;
+      qs.push({q:"What is "+prod+" ÷ "+b+" ?  Quotient = ?",ans:String(a),opts:[String(a),String(a+1),String(a+2),String(a-1)]});
+    } else {
+      qs.push({q:"What is "+a+" + "+b+" ?  Sum = ?",ans:String(a+b),opts:[String(a+b),String(a+b+1),String(a+b+2),String(a+b-1)]});
+    }
+  }
+  window.currentQs=qs; window.currentQ=0; window.score=0; showQ();
+}
+function showQ(){
+  var q=window.currentQs[window.currentQ];
+  document.getElementById("qText").innerText="Q"+(window.currentQ+1)+" / "+window.currentQs.length+": "+q.q+"  |  Score: "+window.score;
+  var div=document.getElementById("qOpts"); div.innerHTML="";
+  var answered=false;
+  q.opts.forEach(function(o){
+    var btn=document.createElement("button"); btn.className="qbtn"; btn.innerText=o;
+    btn.onclick=function(){
+      if(answered) return; answered=true;
+      if(o===q.ans){ window.score++; alert("✅ Correct! Score: "+window.score); }
+      else { alert("❌ Wrong - Correct: "+q.ans); }
+      div.querySelectorAll("button").forEach(function(b){ if(b.id!=="nextBtn") b.disabled=true; b.style.opacity="0.6"; });
+      document.getElementById("nextBtn").style.display="block";
+      document.getElementById("qText").innerText="Q"+(window.currentQ+1)+" / "+window.currentQs.length+": "+q.q+"  |  Score: "+window.score;
+    };
+    div.appendChild(btn);
+  });
+  var next=document.createElement("button");
+  next.id="nextBtn";
+  next.innerText = (window.currentQ === window.currentQs.length-1) ? "FINISH → See Score" : "NEXT → Next Question";
+  next.style.cssText="background:#27ae60;width:100%;margin-top:12px;padding:14px;font-size:16px;display:none";
+  next.onclick=function(){
+    window.currentQ++;
+    if(window.currentQ < window.currentQs.length){ showQ(); }
+    else {
+      document.getElementById("qText").innerText="🎉 Finished! Final Score: "+window.score+" / "+window.currentQs.length;
+      div.innerHTML="<button onclick='location.reload()'>🔁 Restart Quiz</button><button onclick='window.close()'>CLOSE</button>";
+    }
+  };
+  div.appendChild(next);
+  var skip=document.createElement("button");
+  skip.innerText="SKIP → Next Question";
+  skip.style.cssText="background:#f39c12;color:#000;width:100%;margin-top:8px";
+  skip.onclick=function(){
+    window.currentQ++;
+    if(window.currentQ < window.currentQs.length){ showQ(); }
+    else { document.getElementById("qText").innerText="🎉 Finished! Final Score: "+window.score+" / "+window.currentQs.length; div.innerHTML=""; }
+  };
+  div.appendChild(skip);
+}
 </script>
 </body>
 </html>
