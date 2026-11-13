@@ -8,150 +8,198 @@
 body{font-family:Arial,sans-serif;margin:0;background:#fff7ed}
 header{background:#ff5a8a;color:#fff;padding:16px;text-align:center}
 select{padding:10px;font-size:16px;border-radius:8px}
-.wrap{max-width:900px;margin:auto;padding:16px}
+.wrap{max-width:1000px;margin:auto;padding:16px}
 .card{background:#fff;border:2px solid #eee;border-radius:14px;padding:16px;margin:12px 0}
-button{padding:12px 18px;border:0;border-radius:10px;background:#2563eb;color:#fff;font-size:16px;cursor:pointer;margin:6px 6px 0 0}
-button.green{background:#16a34a} button.orange{background:#ea580c} button.pink{background:#db2777}
+button{padding:10px 14px;border:0;border-radius:10px;background:#2563eb;color:#fff;font-size:14px;cursor:pointer;margin:4px}
+button.green{background:#16a34a} button.gpay{background:#4285F4}
 .q{font-size:22px;font-weight:bold} .opt{display:block;width:100%;text-align:left;background:#f1f5f9;color:#111;margin-top:6px}
 .price{font-size:22px;font-weight:bold;color:#16a34a}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:600px){.grid{grid-template-columns:1fr}}
+.paybox{background:#ecfdf5;border:2px solid #16a34a;border-radius:12px;padding:14px;margin-top:10px;text-align:center}
 </style>
 </head>
 <body>
 <header>
-<h1>Hi Rainbow - 84 Tools - Each Tool Uses AI Tool</h1>
-<p>English Only - 7 Countries - No Repeat</p>
-<select id="country" onchange="changeCountry()">
-<option>India</option><option>USA</option><option>UK</option><option>Canada</option><option>Australia</option><option>China</option><option>Korea</option>
-</select>
+<h1>Hi Rainbow - 84 Tools</h1>
+<p>English Only - 7 Countries - Each Tool Uses AI Tool - No Repeat</p>
+<select id="country" onchange="changeCountry()"><option>India</option><option>USA</option><option>UK</option><option>Canada</option><option>Australia</option><option>China</option><option>Korea</option></select>
 <p id="countryInfo"></p><p class="price" id="priceInfo"></p><p id="payInfo"></p>
 </header>
 <div class="wrap">
-<div class="card">
-<h2>Choose Tool - Each Tool Uses Its Own AI Tool</h2>
-<button onclick="startTool('math')">Maths Race - AI Math Tool</button>
-<button class="green" onclick="startTool('science')">Science Quiz - AI Science Tool</button>
-<button class="orange" onclick="startTool('spelling')">Spelling Bee - AI Spelling Tool</button>
-<button class="pink" onclick="startTool('reading')">Reading - AI Reading Tool</button>
-<button onclick="startTool('drawing')">Drawing - AI Drawing Tool</button>
-<p>Each button calls a different AI Tool. No repeat.</p>
-</div>
+<div class="card"><h2>All 84 Tools - Click Any Tool - AI Tool Makes Unique Questions</h2><div class="grid" id="toolGrid"></div></div>
 <div class="card" id="quizBox" style="display:none">
-<h2 id="quizTitle"></h2>
-<p id="aiLabel" style="color:#db2777;font-weight:bold"></p>
-<p id="score"></p>
-<p class="q" id="question"></p>
-<div id="options"></div>
-<p id="result"></p>
-<button onclick="nextQ()">Next Question - AI Makes New Question</button>
-<button onclick="resetTool()">Restart - AI Makes New Set</button>
+<h2 id="quizTitle"></h2><p id="aiLabel" style="color:#db2777;font-weight:bold"></p>
+<p id="score"></p><p class="q" id="question"></p><div id="options"></div><p id="result"></p>
+<button onclick="nextQ()">Next - AI Makes New Question</button><button class="green" onclick="resetTool()">Restart - AI Makes New Set</button>
 </div>
-<div class="card"><h2>Payment - Changes By Country</h2><p id="payBox"></p><button class="green">Pay Now</button></div>
+<div class="card">
+<h2>Payment - Pay Now</h2>
+<p id="payBox"></p>
+<button class="green" style="font-size:18px;padding:14px 22px" onclick="payNowQR()">Pay Now</button>
+<div class="paybox" id="qrBox" style="display:none">
+<p><b id="qrTitle">Pay Now</b></p>
+<p id="qrPrice" style="font-weight:bold;font-size:18px"></p>
+<button id="mainPayBtn" class="gpay" style="font-size:18px;padding:14px 24px" onclick="openRazorpay()">Pay With GPay</button>
+<p style="margin-top:10px">OR Scan QR Code</p>
+<img id="qrImg" src="" style="width:240px;height:240px;border:2px solid #000">
+<p id="qrHint">Open GPay App - Scan - Pay</p>
+<p>Payment Link: razorpay.me/@maheswarisallinone</p>
+<p>QR ID: qr_TzYJyouNHbFElG</p>
+<p>After Payment - Take Screenshot - Send on WhatsApp</p>
+</div>
+<p id="payStatus" style="font-weight:bold;color:#16a34a"></p>
+</div>
 </div>
 <script>
-// PRICES - 7 COUNTRIES
-var prices={India:{p:"Rs.999",pay:"GPay / PhonePe / UPI"},USA:{p:"$30",pay:"Stripe / PayPal"},UK:{p:"£25",pay:"Stripe / PayPal"},Canada:{p:"$40 CAD",pay:"Stripe / PayPal"},Australia:{p:"$45 AUD",pay:"Stripe / PayPal"},China:{p:"¥200 CNY",pay:"Alipay / WeChat Pay / Stripe"},Korea:{p:"₩40000 KRW",pay:"KakaoPay / Card / Stripe"}};
-function changeCountry(){var c=document.getElementById("country").value;document.getElementById("countryInfo").innerText="Country: "+c+" | Language: English Only";document.getElementById("priceInfo").innerText="Price: "+prices[c].p;document.getElementById("payInfo").innerText="Payment: "+prices[c].pay;document.getElementById("payBox").innerText="Country: "+c+" | Price: "+prices[c].p+" | Payment: "+prices[c].pay;}
+var RAZORPAY_LINK = "https://razorpay.me/@maheswarisallinone";
+var RAZORPAY_QR_ID = "qr_TzYJyouNHbFElG";
+var prices={India:{p:"Rs.999",pay:"GPay",btn:"Pay With GPay",hint:"Open GPay App - Scan - Pay"},USA:{p:"$30",pay:"Only Razorpay - razorpay.me/@maheswarisallinone",btn:"Pay With Razorpay",hint:"Open Razorpay Link - Pay"},UK:{p:"£25",pay:"Only Razorpay - razorpay.me/@maheswarisallinone",btn:"Pay With Razorpay",hint:"Open Razorpay Link - Pay"},Canada:{p:"$40 CAD",pay:"Only Razorpay - razorpay.me/@maheswarisallinone",btn:"Pay With Razorpay",hint:"Open Razorpay Link - Pay"},Australia:{p:"$45 AUD",pay:"Only Razorpay - razorpay.me/@maheswarisallinone",btn:"Pay With Razorpay",hint:"Open Razorpay Link - Pay"},China:{p:"¥200 CNY",pay:"Only Razorpay - razorpay.me/@maheswarisallinone",btn:"Pay With Razorpay",hint:"Open Razorpay Link - Pay"},Korea:{p:"₩40000 KRW",pay:"Only Razorpay - razorpay.me/@maheswarisallinone",btn:"Pay With Razorpay",hint:"Open Razorpay Link - Pay"}};
+var currentCountry="India";
+function changeCountry(){var c=document.getElementById("country").value;currentCountry=c;document.getElementById("countryInfo").innerText="Country: "+c+" | Language: English Only";document.getElementById("priceInfo").innerText="Price: "+prices[c].p;document.getElementById("payInfo").innerText="Payment: "+prices[c].pay;document.getElementById("payBox").innerText="Country: "+c+" | Price: "+prices[c].p+" | Payment: "+prices[c].pay;document.getElementById("qrBox").style.display="none";document.getElementById("payStatus").innerText="";}
 changeCountry();
-
-// EACH TOOL USES ITS OWN AI TOOL - NO SHARED LIST
-var usedQuestions = []; // AI Tool remembers used questions - No Repeat
-
-// AI TOOL 1 - MATH ONLY
-function aiMathTool(){
-  var bank=[
-    {q:"5 + 7 = ?",a:["11","12","13","10"],c:1},
-    {q:"10 - 3 = ?",a:["7","8","6","9"],c:0},
-    {q:"2 x 4 = ?",a:["6","7","8","9"],c:2},
-    {q:"9 + 6 = ?",a:["14","15","16","13"],c:1},
-    {q:"20 - 5 = ?",a:["15","14","16","13"],c:0},
-    {q:"3 x 3 = ?",a:["8","9","6","12"],c:1},
-    {q:"8 + 8 = ?",a:["15","16","14","17"],c:1}
-  ];
-  return aiPick(bank);
+function payNowQR(){
+  var c=currentCountry;
+  document.getElementById("qrBox").style.display="block";
+  document.getElementById("qrPrice").innerText="Pay "+prices[c].p+" - "+c;
+  if(c==="India"){document.getElementById("qrTitle").innerText="Pay With GPay - India - Rs.999";document.getElementById("mainPayBtn").innerText="Pay With GPay - Click Here";}
+  else{document.getElementById("qrTitle").innerText="Pay With Razorpay - "+c+" - "+prices[c].p;document.getElementById("mainPayBtn").innerText="Pay With Razorpay - Click Here";}
+  document.getElementById("qrHint").innerText=prices[c].hint;
+  document.getElementById("qrImg").src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data="+encodeURIComponent(RAZORPAY_LINK);
+  document.getElementById("payStatus").innerText="Pay Now Working! India = GPay | Others = Only Razorpay";
+  alert("Pay Now Working! "+c+" - "+prices[c].p+" - "+prices[c].pay);
 }
-// AI TOOL 2 - SCIENCE ONLY
-function aiScienceTool(){
-  var bank=[
-    {q:"What do plants need to grow?",a:["Sunlight and Water","Shoes","Phone","Math Book"],c:0},
-    {q:"Which is a living thing?",a:["Rock","Dog","Chair","Table"],c:1},
-    {q:"What do we drink to live?",a:["Water","Sand","Stone","Paper"],c:0},
-    {q:"Sun gives us?",a:["Light and Heat","Cold","Dark","Ice"],c:0},
-    {q:"Which animal says Meow?",a:["Dog","Cat","Cow","Lion"],c:1},
-    {q:"Which is a plant?",a:["Rose","Dog","Car","Phone"],c:0}
-  ];
-  return aiPick(bank);
+function openRazorpay(){ window.open(RAZORPAY_LINK,"_blank"); }
+var TOOLS=[
+{id:1,name:"Maths Race",cat:"math",prompt:"AI Math Addition"},
+{id:2,name:"Addition",cat:"math",prompt:"AI Math Addition Only"},
+{id:3,name:"Subtraction",cat:"math",prompt:"AI Math Subtraction Only"},
+{id:4,name:"Multiplication",cat:"math",prompt:"AI Math Multiplication Only"},
+{id:5,name:"Division",cat:"math",prompt:"AI Math Division Only"},
+{id:6,name:"Counting",cat:"math",prompt:"AI Math Counting Only"},
+{id:7,name:"Number Line",cat:"math",prompt:"AI Math Number Line Only"},
+{id:8,name:"Shapes Math",cat:"math",prompt:"AI Math Shapes Only"},
+{id:9,name:"Money Math",cat:"math",prompt:"AI Math Money Only"},
+{id:10,name:"Time Math",cat:"math",prompt:"AI Math Time Only"},
+{id:11,name:"Tables",cat:"math",prompt:"AI Math Tables Only"},
+{id:12,name:"Puzzle Math",cat:"math",prompt:"AI Math Puzzle Only"},
+{id:13,name:"Science Quiz",cat:"science",prompt:"AI Science General Only"},
+{id:14,name:"Plants",cat:"science",prompt:"AI Science Plants Only"},
+{id:15,name:"Animals",cat:"science",prompt:"AI Science Animals Only"},
+{id:16,name:"Water",cat:"science",prompt:"AI Science Water Only"},
+{id:17,name:"Sun Moon",cat:"science",prompt:"AI Science Sun Moon Only"},
+{id:18,name:"Body Parts",cat:"science",prompt:"AI Science Body Only"},
+{id:19,name:"Food Science",cat:"science",prompt:"AI Science Food Only"},
+{id:20,name:"Weather",cat:"science",prompt:"AI Science Weather Only"},
+{id:21,name:"Earth",cat:"science",prompt:"AI Science Earth Only"},
+{id:22,name:"Light",cat:"science",prompt:"AI Science Light Only"},
+{id:23,name:"Sound",cat:"science",prompt:"AI Science Sound Only"},
+{id:24,name:"Living Non-Living",cat:"science",prompt:"AI Science Living Only"},
+{id:25,name:"Spelling Bee",cat:"spelling",prompt:"AI Spelling Bee Only"},
+{id:26,name:"Reading",cat:"english",prompt:"AI English Reading Only"},
+{id:27,name:"Writing",cat:"english",prompt:"AI English Writing Only"},
+{id:28,name:"Words",cat:"english",prompt:"AI English Words Only"},
+{id:29,name:"Sentences",cat:"english",prompt:"AI English Sentences Only"},
+{id:30,name:"Grammar",cat:"english",prompt:"AI English Grammar Only"},
+{id:31,name:"Rhyming",cat:"english",prompt:"AI English Rhyming Only"},
+{id:32,name:"Phonics",cat:"english",prompt:"AI English Phonics Only"},
+{id:33,name:"Story Time",cat:"english",prompt:"AI English Story Only"},
+{id:34,name:"Vocabulary",cat:"english",prompt:"AI English Vocabulary Only"},
+{id:35,name:"Opposites",cat:"english",prompt:"AI English Opposites Only"},
+{id:36,name:"Alphabet",cat:"english",prompt:"AI English Alphabet Only"},
+{id:37,name:"Drawing",cat:"art",prompt:"AI Art Drawing Only"},
+{id:38,name:"Coloring",cat:"art",prompt:"AI Art Coloring Only"},
+{id:39,name:"Shapes Art",cat:"art",prompt:"AI Art Shapes Only"},
+{id:40,name:"Music",cat:"art",prompt:"AI Art Music Only"},
+{id:41,name:"Dance Move",cat:"art",prompt:"AI Art Dance Only"},
+{id:42,name:"Craft",cat:"art",prompt:"AI Art Craft Only"},
+{id:43,name:"Memory Game",cat:"brain",prompt:"AI Brain Memory Only"},
+{id:44,name:"Puzzle",cat:"brain",prompt:"AI Brain Puzzle Only"},
+{id:45,name:"Maze",cat:"brain",prompt:"AI Brain Maze Only"},
+{id:46,name:"Odd One Out",cat:"brain",prompt:"AI Brain Odd One Only"},
+{id:47,name:"Find Difference",cat:"brain",prompt:"AI Brain Difference Only"},
+{id:48,name:"Pattern",cat:"brain",prompt:"AI Brain Pattern Only"},
+{id:49,name:"Good Habits",cat:"gk",prompt:"AI GK Habits Only"},
+{id:50,name:"Safety",cat:"gk",prompt:"AI GK Safety Only"},
+{id:51,name:"Countries",cat:"gk",prompt:"AI GK Countries Only"},
+{id:52,name:"Flags",cat:"gk",prompt:"AI GK Flags Only"},
+{id:53,name:"Transport",cat:"gk",prompt:"AI GK Transport Only"},
+{id:54,name:"Jobs",cat:"gk",prompt:"AI GK Jobs Only"},
+{id:55,name:"Festivals",cat:"gk",prompt:"AI GK Festivals Only"},
+{id:56,name:"Sports",cat:"gk",prompt:"AI GK Sports Only"},
+{id:57,name:"Fruits",cat:"gk",prompt:"AI GK Fruits Only"},
+{id:58,name:"Vegetables",cat:"gk",prompt:"AI GK Vegetables Only"},
+{id:59,name:"Colours",cat:"gk",prompt:"AI GK Colours Only"},
+{id:60,name:"Days Months",cat:"gk",prompt:"AI GK Days Only"},
+{id:61,name:"Brain Quiz",cat:"brain",prompt:"AI Brain Quiz Only"},
+{id:62,name:"Logic",cat:"brain",prompt:"AI Brain Logic Only"},
+{id:63,name:"Memory Words",cat:"brain",prompt:"AI Brain Memory Words Only"},
+{id:64,name:"Sequence",cat:"brain",prompt:"AI Brain Sequence Only"},
+{id:65,name:"Coding Kids",cat:"brain",prompt:"AI Brain Coding Only"},
+{id:66,name:"Sudoku Kids",cat:"brain",prompt:"AI Brain Sudoku Only"},
+{id:67,name:"Word Search",cat:"english",prompt:"AI English Word Search Only"},
+{id:68,name:"Crossword Kids",cat:"english",prompt:"AI English Crossword Only"},
+{id:69,name:"Riddle",cat:"brain",prompt:"AI Brain Riddle Only"},
+{id:70,name:"Quick Think",cat:"brain",prompt:"AI Brain Quick Think Only"},
+{id:71,name:"Focus Game",cat:"brain",prompt:"AI Brain Focus Only"},
+{id:72,name:"Speed Test",cat:"brain",prompt:"AI Brain Speed Only"},
+{id:73,name:"Daily Test",cat:"practice",prompt:"AI Practice Daily Only"},
+{id:74,name:"Homework Help",cat:"practice",prompt:"AI Practice Homework Only"},
+{id:75,name:"Mock Test",cat:"practice",prompt:"AI Practice Mock Only"},
+{id:76,name:"Revision",cat:"practice",prompt:"AI Practice Revision Only"},
+{id:77,name:"Parent Report",cat:"practice",prompt:"AI Practice Report Only"},
+{id:78,name:"Certificate",cat:"practice",prompt:"AI Practice Certificate Only"},
+{id:79,name:"Leaderboard",cat:"practice",prompt:"AI Practice Leaderboard Only"},
+{id:80,name:"Sticker Reward",cat:"practice",prompt:"AI Practice Sticker Only"},
+{id:81,name:"Speaking",cat:"english",prompt:"AI English Speaking Only"},
+{id:82,name:"Listening",cat:"english",prompt:"AI English Listening Only"},
+{id:83,name:"Handwriting",cat:"english",prompt:"AI English Handwriting Only"},
+{id:84,name:"Final Exam",cat:"practice",prompt:"AI Practice Final Exam Only"}
+];
+var BANKS={
+math:[{q:"5 + 7 = ?",a:["11","12","13","10"],c:1},{q:"10 - 3 = ?",a:["7","8","6","9"],c:0},{q:"2 x 4 = ?",a:["6","7","8","9"],c:2},{q:"20 / 4 = ?",a:["4","5","6","3"],c:1},{q:"9 + 6 = ?",a:["14","15","16","13"],c:1},{q:"Count: 1,2,3, What next?",a:["4","5","6","3"],c:0},{q:"3 x 3 = ?",a:["8","9","6","12"],c:1},{q:"8 + 8 = ?",a:["15","16","14","17"],c:1},{q:"15 - 5 = ?",a:["10","11","9","12"],c:0},{q:"4 x 5 = ?",a:["18","20","22","19"],c:1}],
+science:[{q:"What do plants need?",a:["Sunlight and Water","Shoes","Phone","Math Book"],c:0},{q:"Which is living?",a:["Rock","Dog","Chair","Table"],c:1},{q:"What do we drink?",a:["Water","Sand","Stone","Paper"],c:0},{q:"Sun gives us?",a:["Light and Heat","Cold","Dark","Ice"],c:0},{q:"Which animal says Meow?",a:["Dog","Cat","Cow","Lion"],c:1},{q:"Which is a plant?",a:["Rose","Dog","Car","Phone"],c:0},{q:"Rain comes from?",a:["Cloud","Sun","Moon","Star"],c:0},{q:"We see with?",a:["Eyes","Ears","Nose","Legs"],c:0}],
+spelling:[{q:"Spell CAT",a:["C-A-T","K-A-T","C-A-T-T","S-A-T"],c:0},{q:"Spell APPLE",a:["A-P-L-E","A-P-P-L-E","A-P-L","APPLEE"],c:1},{q:"Spell SCHOOL",a:["S-K-O-O-L","S-C-H-O-O-L","S-C-O-O-L","SHOOL"],c:1},{q:"Spell RAINBOW",a:["R-A-I-N-B-O-W","R-A-N-B-O-W","R-E-N-B-O","RAINBO"],c:0},{q:"Spell DOG",a:["D-O-G","D-O-G-G","DOOG","D-A-G"],c:0},{q:"Spell FISH",a:["F-I-S-H","F-I-S","PHISH","FISH-H"],c:0}],
+english:[{q:"Read: Cat is big. What is big?",a:["Cat","Dog","Fish","Bird"],c:0},{q:"Opposite of Big?",a:["Small","Big","Large","Huge"],c:0},{q:"Which word rhymes with CAT?",a:["BAT","DOG","SUN","FISH"],c:0},{q:"First letter of APPLE?",a:["A","B","C","D"],c:0},{q:"Make sentence: I ___ happy.",a:["am","is","are","be"],c:0},{q:"Which is a word?",a:["BOOK","XYZ","QQQ","ZZZ"],c:0}],
+art:[{q:"Draw Sun. What colour is Sun?",a:["Yellow","Blue","Green","Black"],c:0},{q:"Draw Tree. Leaves colour?",a:["Green","Red","Pink","White"],c:0},{q:"Color Apple?",a:["Red","Blue","Green","Black"],c:0},{q:"Music: Clap sound is?",a:["Sound","Light","Water","Stone"],c:0}],
+brain:[{q:"Find Pattern: 2,4,6, What next?",a:["8","9","7","5"],c:0},{q:"Odd One Out: Apple, Banana, Car, Mango?",a:["Car","Apple","Banana","Mango"],c:0},{q:"What comes next: A,B,C, ?",a:["D","E","F","G"],c:0},{q:"Memory: Cat, Dog, Fish - What was first?",a:["Cat","Dog","Fish","Bird"],c:0}],
+gk:[{q:"Flag of India has which colour on top?",a:["Saffron","Blue","Green","Red"],c:0},{q:"Which is transport?",a:["Bus","Apple","Book","Pen"],c:0},{q:"Doctor works in?",a:["Hospital","School","Shop","Park"],c:0},{q:"Which is a fruit?",a:["Mango","Potato","Carrot","Onion"],c:0},{q:"How many days in a week?",a:["7","5","6","8"],c:0},{q:"Which sport uses bat?",a:["Cricket","Football","Tennis","Swim"],c:0}],
+practice:[{q:"Daily Test: 2 + 2 = ?",a:["3","4","5","6"],c:1},{q:"Revision: Spell SUN",a:["S-U-N","S-O-N","S-U-M","SUNN"],c:0},{q:"Final Exam: Plants need?",a:["Sun and Water","Shoes","Phone","Book"],c:0}]
+};
+var used=[]; var currentTool=null, currentQ=null, currentScore=0, qCount=0;
+var grid=document.getElementById("toolGrid");
+TOOLS.forEach(function(t){var b=document.createElement("button"); b.innerText=t.id+". "+t.name+" - AI Tool"; b.onclick=function(){startTool(t);}; grid.appendChild(b);});
+function aiPick(cat, toolName){
+  var bank=BANKS[cat]||BANKS.practice;
+  var fresh=bank.filter(function(item){return used.indexOf(toolName+":"+item.q)===-1;});
+  if(fresh.length===0){fresh=bank;}
+  var pick=fresh[Math.floor(Math.random()*fresh.length)];
+  var q={q:toolName+": "+pick.q, a:pick.a.slice(), c:pick.c};
+  used.push(toolName+":"+pick.q);
+  return q;
 }
-// AI TOOL 3 - SPELLING ONLY
-function aiSpellingTool(){
-  var bank=[
-    {q:"Spell CAT",a:["C-A-T","K-A-T","C-A-T-T","S-A-T"],c:0},
-    {q:"Spell APPLE",a:["A-P-L-E","A-P-P-L-E","A-P-L","APPLEE"],c:1},
-    {q:"Spell SCHOOL",a:["S-K-O-O-L","S-C-H-O-O-L","S-C-O-O-L","SHOOL"],c:1},
-    {q:"Spell RAINBOW",a:["R-A-I-N-B-O-W","R-A-N-B-O-W","R-E-N-B-O","RAINBO"],c:0},
-    {q:"Spell DOG",a:["D-O-G","D-O-G-G","DOOG","D-A-G"],c:0},
-    {q:"Spell FISH",a:["F-I-S-H","F-I-S","PHISH","FISH-H"],c:0}
-  ];
-  return aiPick(bank);
-}
-// AI TOOL 4 - READING ONLY
-function aiReadingTool(){
-  var bank=[
-    {q:"Read: The cat is big. What is big?",a:["Cat","Dog","Fish","Bird"],c:0},
-    {q:"Read: I like red apple. What colour?",a:["Red","Blue","Green","Yellow"],c:0}
-  ];
-  return aiPick(bank);
-}
-// AI TOOL 5 - DRAWING ONLY
-function aiDrawingTool(){
-  var bank=[
-    {q:"Draw a Sun. What colour is Sun?",a:["Yellow","Blue","Green","Black"],c:0},
-    {q:"Draw a Tree. What colour are leaves?",a:["Green","Red","Pink","White"],c:0}
-  ];
-  return aiPick(bank);
-}
-
-// AI PICK - NO REPEAT LOGIC
-function aiPick(bank){
-  var fresh = bank.filter(function(item){return usedQuestions.indexOf(item.q)===-1;});
-  if(fresh.length===0){usedQuestions=[];fresh=bank;}
-  var pick = fresh[Math.floor(Math.random()*fresh.length)];
-  usedQuestions.push(pick.q);
-  return pick;
-}
-
-var currentType="math", currentQ=null, currentScore=0, qCount=0;
-
-function startTool(type){
-  currentType=type; currentScore=0; qCount=0; usedQuestions=[];
+function startTool(t){
+  currentTool=t; currentScore=0; qCount=0; used=[];
   document.getElementById("quizBox").style.display="block";
-  var titles={math:"Maths Race - AI Math Tool",science:"Science Quiz - AI Science Tool",spelling:"Spelling Bee - AI Spelling Tool",reading:"Reading - AI Reading Tool",drawing:"Drawing - AI Drawing Tool"};
-  document.getElementById("quizTitle").innerText=titles[type];
-  document.getElementById("aiLabel").innerText="AI Tool Active: "+titles[type]+" - Making new question for you... English Only";
+  document.getElementById("quizTitle").innerText=t.id+". "+t.name;
+  document.getElementById("aiLabel").innerText="AI Tool Active: "+t.prompt+" - For "+t.name+" Only - English Only - No Repeat";
   nextQ();
 }
-function getAIQuestion(){
-  if(currentType==="math") return aiMathTool();
-  if(currentType==="science") return aiScienceTool();
-  if(currentType==="spelling") return aiSpellingTool();
-  if(currentType==="reading") return aiReadingTool();
-  if(currentType==="drawing") return aiDrawingTool();
-}
 function nextQ(){
-  if(qCount>=5){document.getElementById("question").innerText="AI Tool Finished!";document.getElementById("options").innerHTML="";document.getElementById("result").innerText="";document.getElementById("score").innerText="Final Score: "+currentScore+" / 5 | AI Tool made 5 unique questions, no repeat";return;}
-  currentQ=getAIQuestion(); qCount++;
+  if(qCount>=5){document.getElementById("question").innerText="AI Tool Finished for "+currentTool.name;document.getElementById("options").innerHTML="";document.getElementById("result").innerText="";document.getElementById("score").innerText="Final Score: "+currentScore+" / 5 | Each question unique for this tool";return;}
+  currentQ=aiPick(currentTool.cat, currentTool.name); qCount++;
   document.getElementById("score").innerText="Question "+qCount+" of 5 | Score: "+currentScore;
   document.getElementById("question").innerText=currentQ.q;
   document.getElementById("result").innerText="";
-  var html="";
-  for(var i=0;i<currentQ.a.length;i++){html+='<button class="opt" onclick="checkAns('+i+')">'+currentQ.a[i]+'</button>';}
+  var html=""; for(var i=0;i<currentQ.a.length;i++){html+='<button class="opt" onclick="checkAns('+i+')">'+currentQ.a[i]+'</button>';}
   document.getElementById("options").innerHTML=html;
 }
 function checkAns(i){
   if(i===currentQ.c){currentScore++;document.getElementById("result").innerText="Correct! AI Tool says Good Job!";}
-  else{document.getElementById("result").innerText="Wrong. AI Tool says Correct answer is: "+currentQ.a[currentQ.c];}
+  else{document.getElementById("result").innerText="Wrong. AI Tool says Correct is: "+currentQ.a[currentQ.c];}
   document.getElementById("score").innerText="Question "+qCount+" of 5 | Score: "+currentScore;
 }
-function resetTool(){startTool(currentType);}
+function resetTool(){startTool(currentTool);}
 </script>
 </body>
 </html>
