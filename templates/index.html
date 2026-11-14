@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hi Rainbow AI Toolbox</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f3f7ff; color: #1f2937; }
+    .wrap { max-width: 900px; margin: 40px auto; padding: 20px; }
+    .card { background: white; border-radius: 16px; padding: 20px; margin-bottom: 18px; box-shadow: 0 3px 12px rgba(0,0,0,0.06); }
+    h1 { margin-top: 0; }
+    button, select, textarea, input { width: 100%; box-sizing: border-box; margin-top: 10px; padding: 12px; border-radius: 10px; border: 1px solid #d1d5db; font-size: 16px; }
+    button { background: #2563eb; color: white; border: none; font-weight: bold; cursor: pointer; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; }
+    .result { white-space: pre-wrap; background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Hi Rainbow AI Toolbox</h1>
+      <p>Simple AI-powered learning tools for children.</p>
+    </div>
+
+    <div class="card">
+      <div class="grid">
+        <button data-tool="quiz">Quiz</button>
+        <button data-tool="math">Math</button>
+        <button data-tool="story">Story</button>
+        <button data-tool="resume">Resume</button>
+        <button data-tool="translate">Translate</button>
+        <button data-tool="tutor">Tutor</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <label for="language">Language</label>
+      <select id="language">
+        <option value="en">English</option>
+        <option value="ta">Tamil</option>
+        <option value="hi">Hindi</option>
+      </select>
+
+      <label for="prompt" style="display:block; margin-top:16px;">Prompt</label>
+      <textarea id="prompt" rows="5" placeholder="Type your request here..."></textarea>
+      <button id="runBtn" style="margin-top:16px;">Generate</button>
+
+      <div id="resultBox" class="result">Your answer will appear here.</div>
+    </div>
+  </div>
+
+  <script>
+    const runBtn = document.getElementById('runBtn');
+    const language = document.getElementById('language');
+    const prompt = document.getElementById('prompt');
+    const resultBox = document.getElementById('resultBox');
+    let selectedTool = 'quiz';
+
+    document.querySelectorAll('[data-tool]').forEach(button => {
+      button.addEventListener('click', () => {
+        selectedTool = button.dataset.tool;
+        document.querySelectorAll('[data-tool]').forEach(b => b.style.background = '#2563eb');
+        button.style.background = '#16a34a';
+        if (!prompt.value) {
+          prompt.value = selectedTool === 'math' ? 'Create an easy addition question for a 7-year-old.' :
+            selectedTool === 'story' ? 'Write a short rainbow story for a child.' :
+            selectedTool === 'resume' ? 'Create a simple student resume.' :
+            selectedTool === 'translate' ? 'Translate hello into Tamil.' :
+            selectedTool === 'tutor' ? 'Explain fractions in a child-friendly way.' :
+            'Create a fun educational quiz.';
+        }
+      });
+    });
+
+    runBtn.addEventListener('click', async () => {
+      const text = prompt.value.trim();
+      if (!text) {
+        resultBox.textContent = 'Please enter a prompt first.';
+        return;
+      }
+
+      resultBox.textContent = 'Thinking...';
+
+      try {
+        const response = await fetch('/api/tool', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ tool: selectedTool, prompt: text, language: language.value })
+        });
+
+        const data = await response.json();
+        resultBox.textContent = data.response || 'No result returned.';
+      } catch (error) {
+        resultBox.textContent = 'Error: backend not running. Start with: uvicorn app:app --reload';
+      }
+    });
+  </script>
+</body>
+</html>
